@@ -15,3 +15,14 @@ const total = 25;
 
 // Create game object
 const nimObj = new Nim(player1, player2, victory, total);
+
+function initGame(){
+    // replace html placeholders with values from the Nim object
+    // set player1 name
+    // set player2 name
+    // set total amount
+    // set remaining amount
+    let remaining = document.getElementById("remaining");
+    remaining.innerHTML = nimObj.total;
+}
+initGame();
