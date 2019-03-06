@@ -83,7 +83,10 @@ body {
 #play {
     background-color: darkslategray;
     border: none;
-    margin-left: 10em;
+    margin-left: 12em;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
     color: floralwhite;
     padding: 0.5em;
     text-decoration: none;
