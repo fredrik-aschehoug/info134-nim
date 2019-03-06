@@ -64,7 +64,7 @@ body {
     color: darkslategray;
     background-color: floralwhite;
     margin-top: 0.5em;
-    padding-bottom: 9em;
+    padding-bottom: 11em;
     padding-top: 0.5em;
     width: 55em;
     margin-left: auto;
@@ -89,8 +89,8 @@ body {
 #playImage {
     text-align: left;
     margin-top: 2em;
-    margin-left: 5em;
-    margin-right: 3em;
+    margin-left: 3em;
+    margin-right: 7em;
     
    
 }
