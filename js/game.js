@@ -1,6 +1,9 @@
 //Temporaty game variables
-const victory = () => "Victory";
-const total = 5;
+function victory(player){
+    playerName = player.name;
+    alert("Gratulerer " + playerName + "! Du har vunnet spillet!");
+}
+const total = 20;
 
 // init global vars
 let nimObj;
@@ -25,6 +28,7 @@ function reverseTokens(){
 function buttonClickPlayer1(amount){
     if(player1Token){
         calculateRemaining(amount);
+        checkWin(nimObj.player1)
         reverseTokens();
         setCurrentPlayer(nimObj.player2.name);
         disableInvalidButtons(nimObj.total);
@@ -34,6 +38,7 @@ function buttonClickPlayer1(amount){
 function buttonClickPlayer2(amount){
     if(player2Token){
         calculateRemaining(amount);
+        checkWin(nimObj.player2)
         reverseTokens();
         setCurrentPlayer(nimObj.player1.name);
         disableInvalidButtons(nimObj.total);
@@ -55,11 +60,17 @@ function disableInvalidButtons(remainingAmount) {
     if(remainingAmount < 2) {
         player1Button2.disabled = true;
         player2Button2.disabled = true;
-    } else if(remainingAmount < 3) {
+    } if(remainingAmount < 3) {
         player1Button3.disabled = true;
         player2Button3.disabled = true;
     } 
     
+}
+
+function checkWin(player) {
+    if(nimObj.total === 0){
+        nimObj.victory(player)
+    }
 }
 
 function initGame(nimObj){

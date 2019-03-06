@@ -24,4 +24,4 @@ function Nim(player1, player2, victory, total, maxGrab){
     }  
 }
 
-// Oppgave 2.1 og 2.2 er løst her
+// Oppgave 2.1 og 2.2 er løst i denne filen
