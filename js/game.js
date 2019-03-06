@@ -3,7 +3,7 @@ function victory(player){
     playerName = player.name;
     alert("Gratulerer " + playerName + "! Du har vunnet spillet!");
 }
-const total = 5;
+const total = 20;
 
 // init global vars
 let nimObj;
