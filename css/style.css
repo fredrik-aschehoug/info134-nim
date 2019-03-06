@@ -67,7 +67,7 @@ body {
 }
 
 .player2Buttons button {
-    margin-top: 8em;
+    margin-top: 6em;
     margin-left: 1em;
     background-color: #006682;
     font-size: 2em;
@@ -181,3 +181,13 @@ h3 a {
     display: inline-block;
 }
 
+fieldset {
+    border: 0;
+}
+
+.playerNames {
+    color: floralwhite;
+    margin-top: 2.5em;
+    border-style: none;
+
+}
