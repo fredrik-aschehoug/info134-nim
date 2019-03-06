@@ -9,6 +9,25 @@ body {
     text-align: center;
 }
 
+
+#remaining {
+    background-color: floralwhite;
+    border: none;
+    color: darkslategray;
+    padding: 0.5em 0.75em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 1em;
+    cursor: pointer;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 0.5em;
+
+}
+
 .button {
     background-color: floralwhite;
     border: none;
@@ -35,19 +54,19 @@ body {
 
 .player1Buttons button:disabled,
 .player2Buttons button:disabled {
-    background-color: red;
+    background-color: floralwhite;
 }
 
 .player1Buttons button:disabled:hover,
 .player2Buttons button:disabled:hover {
-    background-color:red;
+    background-color:floralwhite;
 }
 
 .player1Buttons button {
     -moz-transform: rotate(-180deg);
     -webkit-transform: rotate(-180deg);
     margin-top: 6em;
-    background-color: #006682;
+    background-color: #FF4600;/*#006682;*/
     font-size: 2em;
     border-style: solid;
     border-width: thin;
@@ -75,8 +94,8 @@ body {
 }
 
 .player2Buttons button {
-    margin-top: 6em;
-    background-color: #006682;
+    margin-top: 2em;
+    background-color: #FF4600;/*#006682;*/
     font-size: 2em;
     border-style: solid;
     border-width: thin;
@@ -204,7 +223,22 @@ h3 a {
 }
 
 
-
+#startGame{
+    background-color: #00CC3C;
+    border: none;
+    color: darkslategray;
+    padding: 0.75em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: -5%;
+    cursor: pointer;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 0.5em;
+}
 
 
 .playerNames {
