@@ -112,10 +112,10 @@ body {
 
 
 
-.h2 {
-    padding-top: 12%;
+/*h2 {
+    margin-top: 1em;
     margin-left: 1%;
-}
+}*/
 
 h1 {
     margin: 0.25em;
@@ -140,13 +140,13 @@ h1 {
 .mainList {
     background-color: floralwhite;
     text-align: center;
-    width: 8em;
+    width: 30em;
     padding: 1em;
     padding-left: 2em;
     padding-right: 2em;
-    margin: 0;
-    font-size: 125%;
-    line-height: 175%;
+    margin-top: -5%;
+    font-size: 90%;
+    line-height: 225%;
     display: inline-block;
     border-style: solid;
     border-width: thin;
@@ -167,12 +167,8 @@ h1 {
     border-color: darkslategray;
 }
 
-li a {
-    display: block;
-    color: #000;
-    left: 0;
-    padding: 0.1%;
-    text-decoration: none;
+li {
+    margin: 0.5em;
 }
 
 
