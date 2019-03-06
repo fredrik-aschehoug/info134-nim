@@ -1,20 +1,8 @@
-
 //Temporaty game variables
-const player1 = {
-    name: "Spiller 1",
-    human: true
-}
-
-const player2 = {
-    name: "Spiller 2",
-    human: true
-}
-
 const victory = () => "Victory";
 const total = 25;
 
-// Create game object
-const nimObj = new Nim(player1, player2, victory, total);
+let nimObj;
 
 // Tokens for players. Player needs a valid token to make a move
 let player1Token = true;
@@ -46,10 +34,8 @@ function buttonClick(amount){
     remaining.innerHTML = nimObj.total;
 }
 
-function initGame(){
+function initGame(nimObj){
     // replace html placeholders with values from the Nim object
-    // set player1 name
-    // set player2 name
     // set total amount
     // set remaining amount
     let remaining = document.getElementById("remaining");
@@ -70,4 +56,26 @@ function initGame(){
     player2Button2.onclick = () => buttonClickPlayer2(2);
     player2Button3.onclick = () => buttonClickPlayer2(3);
 }
-initGame();
+
+let playerNamesForm = document.getElementById("playerNamesFieldset");
+
+let startGame = document.getElementById("startGame");
+startGame.onclick = () => {
+    const player1Name = playerNamesForm.elements["player1"].value;
+    const player2Name = playerNamesForm.elements["player2"].value;
+    
+    const player1 = {
+        name: player1Name,
+        human: true
+    }
+    
+    const player2 = {
+        name: player2Name,
+        human: true
+    }
+    // Create game object
+    nimObj = new Nim(player1, player2, victory, total);
+    
+    initGame(nimObj);
+}
+
