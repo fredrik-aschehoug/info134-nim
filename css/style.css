@@ -7,7 +7,7 @@ body {
     font-family: Arial, sans-serif;
     font-size: 100%;
     text-align: center;
-}a
+}
 
 .button {
     background-color: floralwhite;
@@ -27,12 +27,21 @@ body {
 }
 
 
+
 .frontpage {
     text-align: center;
     padding-top: 20%;
 }
 
+.player1Buttons button:disabled,
+.player2Buttons button:disabled {
+    background-color: red;
+}
 
+.player1Buttons button:disabled:hover,
+.player2Buttons button:disabled:hover {
+    background-color:red;
+}
 
 .player1Buttons button {
     -moz-transform: rotate(-180deg);

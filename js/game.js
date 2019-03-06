@@ -1,8 +1,16 @@
 //Temporaty game variables
 const victory = () => "Victory";
-const total = 25;
+const total = 5;
 
+// init global vars
 let nimObj;
+
+let player1Button1;
+let player1Button2;
+let player1Button3;
+let player2Button1;
+let player2Button2;
+let player2Button3;
 
 // Tokens for players. Player needs a valid token to make a move
 let player1Token = true;
@@ -13,12 +21,13 @@ function reverseTokens(){
     player2Token = !player2Token;
 }
 
-//Button click function
+//Button click functions
 function buttonClickPlayer1(amount){
     if(player1Token){
         calculateRemaining(amount);
         reverseTokens();
         setCurrentPlayer(nimObj.player2.name);
+        disableInvalidButtons(nimObj.total);
     }
 }
 
@@ -27,6 +36,7 @@ function buttonClickPlayer2(amount){
         calculateRemaining(amount);
         reverseTokens();
         setCurrentPlayer(nimObj.player1.name);
+        disableInvalidButtons(nimObj.total);
     }
 }
 
@@ -41,6 +51,17 @@ function setCurrentPlayer(playerName) {
     currentPlayer.innerHTML = playerName;
 }
 
+function disableInvalidButtons(remainingAmount) {
+    if(remainingAmount < 2) {
+        player1Button2.disabled = true;
+        player2Button2.disabled = true;
+    } else if(remainingAmount < 3) {
+        player1Button3.disabled = true;
+        player2Button3.disabled = true;
+    } 
+    
+}
+
 function initGame(nimObj){
     // replace html placeholders with values from the Nim object
     // set total amount
@@ -49,12 +70,12 @@ function initGame(nimObj){
     remaining.innerHTML = nimObj.total;
 
     //Set up listeners
-    let player1Button1 = document.getElementById("player1Button1");
-    let player1Button2 = document.getElementById("player1Button2");
-    let player1Button3 = document.getElementById("player1Button3");
-    let player2Button1 = document.getElementById("player2Button1");
-    let player2Button2 = document.getElementById("player2Button2");
-    let player2Button3 = document.getElementById("player2Button3");
+    player1Button1 = document.getElementById("player1Button1");
+    player1Button2 = document.getElementById("player1Button2");
+    player1Button3 = document.getElementById("player1Button3");
+    player2Button1 = document.getElementById("player2Button1");
+    player2Button2 = document.getElementById("player2Button2");
+    player2Button3 = document.getElementById("player2Button3");
 
     player1Button1.onclick = () => buttonClickPlayer1(1);
     player1Button2.onclick = () => buttonClickPlayer1(2);
