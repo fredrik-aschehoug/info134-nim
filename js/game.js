@@ -16,22 +16,29 @@ function reverseTokens(){
 //Button click function
 function buttonClickPlayer1(amount){
     if(player1Token){
-        buttonClick(amount);
+        calculateRemaining(amount);
         reverseTokens();
+        setCurrentPlayer(nimObj.player2.name);
     }
 }
 
 function buttonClickPlayer2(amount){
     if(player2Token){
-        buttonClick(amount);
+        calculateRemaining(amount);
         reverseTokens();
+        setCurrentPlayer(nimObj.player1.name);
     }
 }
 
-function buttonClick(amount){
+function calculateRemaining(amount){
     nimObj.makeMove(amount);
     let remaining = document.getElementById("remaining");
     remaining.innerHTML = nimObj.total;
+}
+
+function setCurrentPlayer(playerName) {
+    let currentPlayer = document.getElementById("currentPlayer");
+    currentPlayer.innerHTML = playerName;
 }
 
 function initGame(nimObj){
@@ -55,6 +62,8 @@ function initGame(nimObj){
     player2Button1.onclick = () => buttonClickPlayer2(1);
     player2Button2.onclick = () => buttonClickPlayer2(2);
     player2Button3.onclick = () => buttonClickPlayer2(3);
+
+    setCurrentPlayer(nimObj.player1.name);
 }
 
 let playerNamesForm = document.getElementById("playerNamesFieldset");
