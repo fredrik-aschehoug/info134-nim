@@ -193,19 +193,19 @@ h3 a {
 
 #sideBySide1 {
     float:left;
-    width: 86%;
+    display:block;
+    padding-left: 40%;
+    
 }
 
 #sideBySide2 {
+    display: block;
     float: right;
-    width: 86%;
-    margin-top: -1.1%;
+    margin-top: -1.2%;
+    padding-right: 40%;
 }
 
-div label {
-    display:block;
-    width: 97.5%;
-}
+
 
 
 
