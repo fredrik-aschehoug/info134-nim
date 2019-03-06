@@ -47,7 +47,6 @@ body {
     -moz-transform: rotate(-180deg);
     -webkit-transform: rotate(-180deg);
     margin-top: 6em;
-    margin-left: 1em;
     background-color: #006682;
     font-size: 2em;
     border-style: solid;
@@ -77,7 +76,6 @@ body {
 
 .player2Buttons button {
     margin-top: 6em;
-    margin-left: 1em;
     background-color: #006682;
     font-size: 2em;
     border-style: solid;
@@ -201,7 +199,7 @@ h3 a {
 #sideBySide2 {
     display: block;
     float: right;
-    margin-top: -1.2%;
+    margin-top: -1.9%;
     padding-right: 40%;
 }
 
