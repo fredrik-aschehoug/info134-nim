@@ -1,13 +1,11 @@
-//Temporaty game variables
 function victory(player){
     playerName = player.name;
     alert("Gratulerer " + playerName + "! Du har vunnet spillet!");
 }
-const total = 20;
+const total = 20; // Temporary
 
 // init global vars
 let nimObj;
-
 let player1Button1;
 let player1Button2;
 let player1Button3;
@@ -98,9 +96,10 @@ function initGame(nimObj){
     setCurrentPlayer(nimObj.player1.name);
 }
 
-let playerNamesForm = document.getElementById("playerNamesFieldset");
 
-let startGame = document.getElementById("startGame");
+// Configure 'Start Game' button
+const playerNamesForm = document.getElementById("playerNamesForm");
+let startGame = document.getElementById("startGame"); 
 startGame.onclick = () => {
     const player1Name = playerNamesForm.elements["player1"].value;
     const player2Name = playerNamesForm.elements["player2"].value;
