@@ -245,6 +245,7 @@ h1 {
     width: 50%;
     padding-top: 0.25em;
     border-bottom: 0.1em solid darkslategray;
+    opacity: 0.5;
 }
 
 hr {
