@@ -60,7 +60,7 @@ function disableInvalidButtons(remainingAmount) {
     if(remainingAmount < 2) {
         player1Button2.disabled = true;
         player2Button2.disabled = true;
-    } else if(remainingAmount < 3) {
+    } if(remainingAmount < 3) {
         player1Button3.disabled = true;
         player2Button3.disabled = true;
     } 
