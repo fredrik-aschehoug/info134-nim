@@ -191,12 +191,12 @@ h3 a {
 }
 
 
-.sideBySide1 {
+#sideBySide1 {
     float:left;
     width: 86%;
 }
 
-.sideBySide2 {
+#sideBySide2 {
     float: right;
     width: 86%;
     margin-top: -1.1%;
