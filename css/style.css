@@ -79,7 +79,7 @@ body {
 #play {
     background-color: darkslategray;
     border: none;
-    margin-left: 12em;
+    margin-left: 12.69em;
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 0;
@@ -90,7 +90,6 @@ body {
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
-    border-width: thin;
 }
 
 #playImage {
@@ -202,8 +201,11 @@ body {
 }
 
 h1 {
+    margin: 0;
+    margin-right: 0;
     margin-left: 1.5em;
-    font-size: 2.5em
+    font-size: 2.5em;
+    
 }
 
 
