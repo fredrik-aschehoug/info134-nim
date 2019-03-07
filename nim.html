@@ -9,16 +9,19 @@
     <script defer src="js/game.js"></script>
 </head>
 <body style="text-align: center;">
-    <div class="banner">
+    <!--<div class="banner">
         <h1>Game of Nim</h1>
-    </div>
+    </div>-->
     <div class="player1Buttons">
         <button id="player1Button3">3</button>
         <button id="player1Button2">2</button>
         <button id="player1Button1">1</button>   
     </div>
+
     <h1><span id="remaining">0</span></h1>
-    <h1>Your turn, <span id="currentPlayer">Player</span></h1>
+    <h1 id="yourTurn">Your turn, <span id="currentPlayer">Player</span></h1>
+    
+    <button id="startGame">Start Game</button>
     <div class="player2Buttons">
             <button id="player2Button1">1</button>
             <button id="player2Button2">2</button>
@@ -36,7 +39,7 @@
         </div>
             <br>
         </form>
-        <button id="startGame">Start Game</button>
+        
     </div>
     
 
