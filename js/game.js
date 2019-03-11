@@ -59,6 +59,20 @@ function setCurrentPlayer(playerName) {
     currentPlayer.innerHTML = playerName;
 }
 
+function aiAnimation(){
+    let placeholder = document.getElementById("yourTurn");
+    tempStorage = placeholder.innerHTML;
+    placeholder.innerHTML = 'Deploying intelligent algorithm<span id="wait">.</span>'
+    var dots = window.setInterval( function() {
+        var wait = document.getElementById("wait");
+        if ( wait.innerHTML.length > 3 ) 
+            wait.innerHTML = "";
+        else 
+            wait.innerHTML += ".";
+        }, 1000);
+
+}
+
 function disableInvalidButtons(remainingAmount) {
     if(remainingAmount < 2) {
         player1Button2.disabled = true;
