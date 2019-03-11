@@ -7,6 +7,7 @@ html {
 
 body {
     margin: 0;
+    border-spacing: 5px;
     overflow: visible !important;
     background: -webkit-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
     background: -moz-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
@@ -18,6 +19,25 @@ body {
     font-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    /*Flex stuff */
+    flex-flow: column nowrap;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+
+}
+
+@media screen and (max-width: 992px) {
+  body {}
+
+  /*.player1Buttons button {
+        -moz-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+  }*/
 }
 
 
@@ -62,7 +82,7 @@ body {
     padding-bottom: 2%;
     padding-top: 0.5em;
     width: 55em;
-    margin-bottom: 0; 
+    margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
     border-left: 0.01em;
@@ -85,7 +105,7 @@ body {
     border-right: 0.01em;
     border-style: solid;
     border-color: darkslategray;
-    
+
 }
 
 #play {
@@ -109,8 +129,8 @@ body {
     margin-top: 1em;
     margin-left: 3em;
     margin-right: 9em;
-    
-   
+
+
 }
 
 
@@ -149,9 +169,9 @@ body {
     border-style: solid;
     border-width: thin;
     border-color: darkslategray;
-    color: gainsboro; 
-    padding: 1em 1.75em; 
-    cursor: pointer; 
+    color: gainsboro;
+    padding: 1em 1.75em;
+    cursor: pointer;
     display: inline-block;
     border-radius: 0.5em;
     margin-left: auto;
@@ -181,9 +201,9 @@ body {
     border-style: solid;
     border-width: thin;
     border-color: darkslategray;
-    color: gainsboro; 
-    padding: 1em 1.75em; 
-    cursor: pointer; 
+    color: gainsboro;
+    padding: 1em 1.75em;
+    cursor: pointer;
     display: inline-block;
     border-radius: 0.5em;
     opacity: 0.9;
@@ -217,7 +237,7 @@ h1 {
     margin-right: 0;
     margin-left: 1.5em;
     font-size: 2.5em;
-    
+
 }
 
 
@@ -251,7 +271,7 @@ h1 {
     border-right: 0.01em;
     border-style: solid;
     border-color: darkslategray;
-    
+
 }
 
 #contentHeadline {
@@ -275,10 +295,10 @@ hr {
     display: block;
     overflow: hidden;
     border-style: solid;
-    border-width: 1em; 
+    border-width: 1em;
 }
 
-.mainList { 
+.mainList {
     text-align: left;
     width: 30em;
     margin-left: 5%;
@@ -287,8 +307,8 @@ hr {
     margin-top: 1em;
     font-size: 90%;
     line-height: 1.5em;
-    
-    
+
+
 }
 
 .footer {
@@ -325,7 +345,7 @@ h3 a {
     position: relative;
     display:inline-block;
     margin: 0 auto;
-    
+
 }
 
 #sideBySide2 {
@@ -358,7 +378,6 @@ h3 a {
 .playerNames {
     color: floralwhite;
     margin-top: 2.5em;
-   
+
 
 }
-
