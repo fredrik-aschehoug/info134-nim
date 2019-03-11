@@ -13,31 +13,23 @@ let player2Button1;
 let player2Button2;
 let player2Button3;
 
-// Tokens for players. Player needs a valid token to make a move
-let player1Token = true;
-let player2Token = false;
-
-function reverseTokens(){
-    player1Token = !player1Token;
-    player2Token = !player2Token;
-}
 
 //Button click functions
 function buttonClickPlayer1(amount){
-    if(player1Token){
+    if(nimObj.player1.token){
         calculateRemaining(amount);
-        checkWin(nimObj.player1)
-        reverseTokens();
+        nimObj.checkWin(nimObj.player1);
+        nimObj.reverseTokens();
         setCurrentPlayer(nimObj.player2.name);
         disableInvalidButtons(nimObj.total);
     }
 }
 
 function buttonClickPlayer2(amount){
-    if(player2Token){
+    if(nimObj.player2.token){
         calculateRemaining(amount);
-        checkWin(nimObj.player2)
-        reverseTokens();
+        nimObj.checkWin(nimObj.player2);
+        nimObj.reverseTokens();
         setCurrentPlayer(nimObj.player1.name);
         disableInvalidButtons(nimObj.total);
     }
@@ -63,12 +55,6 @@ function disableInvalidButtons(remainingAmount) {
         player2Button3.disabled = true;
     } 
     
-}
-
-function checkWin(player) {
-    if(nimObj.total === 0){
-        nimObj.victory(player)
-    }
 }
 
 function initGame(nimObj){
