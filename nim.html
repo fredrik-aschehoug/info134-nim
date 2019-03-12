@@ -5,17 +5,22 @@
     <title>Nim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+
     <script defer src="js/nim.js"></script>
     <script defer src="js/game.js"></script>
 </head>
 <body style="text-align: center;">
+    <!--Trenger style i bodyen å stå i html dokumentet? -->
     <!--<div class="banner">
         <h1>Game of Nim</h1>
     </div>-->
+    <div class="fboks">
+
     <div class="player1Buttons">
-        <button id="player1Button3">3</button>
-        <button id="player1Button2">2</button>
         <button id="player1Button1">1</button>
+        <button id="player1Button2">2</button>
+        <button id="player1Button3">3</button>
+
     </div>
 
     <h1><span id="remaining">0</span></h1>
@@ -29,12 +34,12 @@
     </div>
     <div>
         <form id="playerNamesForm" class="playerNames">
-           <div id="sideBySide1">
+          <div id="sideBySide1">
 
             <input id="playerOne" type="text" name="player1" placeholder="Enter Player 1 name">
-        </div>
+          </div>
             <br><br>
-            <div id="sideBySide2">
+          <div id="sideBySide2">
             <input id="playerTwo" class="inline" type="text" name="player2" placeholder="Enter Player 2 name">
         </div>
             <br>
@@ -42,6 +47,9 @@
 
     </div>
 
+    </div>
+        <!--for å unngå at ting forsvinne under footer-->
+        <div class=bottombox></div>
 
         <div class="footer">
             <p id="footer22"><a href="index.html">Regler</a></p>
