@@ -2,6 +2,20 @@ function victory(player){
     playerName = player.name;
     alert("Gratulerer " + playerName + "! Du har vunnet spillet!");
 }
+
+const aiText = {
+    text: [
+        'Deploying algorithm',
+        'Calculating optimal move',
+        'Running game theory simulations',
+        'Contemplating'
+    ],
+    get response(){
+        let randomText = this.text[Math.floor(Math.random()*this.text.length)]
+        return randomText + '<span id="wait">.</span>';
+    }
+}
+
 const total = 20; // Temporary
 
 // init global vars
@@ -62,8 +76,8 @@ function setCurrentPlayer(playerName) {
 function aiAnimation(){
     let placeholder = document.getElementById("yourTurn");
     tempStorage = placeholder.innerHTML;
-    placeholder.innerHTML = 'Deploying intelligent algorithm<span id="wait">.</span>'
-    var dots = window.setInterval( function() {
+    placeholder.innerHTML = aiText.response;
+    var dots = window.setInterval( () => {
         var wait = document.getElementById("wait");
         if ( wait.innerHTML.length > 3 ) 
             wait.innerHTML = "";
