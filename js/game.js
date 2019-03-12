@@ -3,6 +3,7 @@ function victory(player){
     alert("Gratulerer " + playerName + "! Du har vunnet spillet!");
 }
 
+// Generate random text response
 const aiText = {
     text: [
         'Deploying algorithm',
