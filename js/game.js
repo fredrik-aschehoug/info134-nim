@@ -12,7 +12,7 @@ const aiText = {
         'Contemplating'
     ],
     get response(){
-        let randomText = this.text[Math.floor(Math.random()*this.text.length)]
+        const randomText = this.text[Math.floor(Math.random() * this.text.length)];
         return randomText + '<span id="wait">.</span>';
     }
 }
@@ -43,14 +43,24 @@ function buttonClickPlayer1(amount){
     if(nimObj.player1.token){
         calculateRemaining(amount);
         nimObj.checkWin(nimObj.player1);
-        nimObj.reverseTokens();
-        setCurrentPlayer(nimObj.player2.name);
-        disableInvalidButtons(nimObj.total);
-        if(!nimObj.player2.human){
-            let amount = getAIAmount();
-            buttonClickPlayer2(amount);
+        if(nimObj.player2.human) {
+            nimObj.reverseTokens();
+            setCurrentPlayer(nimObj.player2.name);
         }
+        disableInvalidButtons(nimObj.total);
+        
+        if(!nimObj.player2.human){
+            aiAnimation();
+        } 
     }
+}
+
+function aiMakeMove(){
+    let amount = getAIAmount();
+    calculateRemaining(amount);
+    nimObj.checkWin(nimObj.player2);
+    disableInvalidButtons(nimObj.total);
+
 }
 
 function buttonClickPlayer2(amount){
@@ -78,14 +88,20 @@ function aiAnimation(){
     let placeholder = document.getElementById("yourTurn");
     tempStorage = placeholder.innerHTML;
     placeholder.innerHTML = aiText.response;
-    var dots = window.setInterval( () => {
-        var wait = document.getElementById("wait");
+    let dotsInterval = window.setInterval( () => {
+        let wait = document.getElementById("wait");
         if ( wait.innerHTML.length > 3 ) 
             wait.innerHTML = "";
         else 
             wait.innerHTML += ".";
-        }, 1000);
-
+    }, 900);
+    let timeout = setTimeout( () => {
+        placeholder.innerHTML = tempStorage;
+        clearInterval(dotsInterval);
+        aiMakeMove();
+    }, 3000)
+    
+    
 }
 
 function disableInvalidButtons(remainingAmount) {
@@ -171,4 +187,3 @@ startGame.onclick = () => {
     
     initGame(nimObj);
 }
-
