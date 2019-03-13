@@ -1,3 +1,7 @@
+
+
+
+
 function victory(player){
     playerName = player.name;
     if(player.human){
@@ -152,12 +156,43 @@ function initGame(nimObj){
 }
 
 
-// Configure 'Start Game' button
-const playerNamesForm = document.getElementById("playerNamesForm");
+function startGamePrompt() {
+    this.render = function(dialog, func){
+        let winW = window.innerWidth;
+        let winH = window.innerHeight; //to center window
+        let promptOverlay = document.getElementById('promptOverlay');
+        let promptBox = document.getElementById('promptBox');
+        promptOverlay.style.display = "block";
+        promptOverlay.style.height = winH + "em";
+
+        
+        promptBox.style.display = "block";
+        document.getElementById('promptBoxHead').innerHTML = "Setup"
+        document.getElementById('promptBoxBody').innerHTML = dialog;
+        document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">';
+        document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>';
+        document.getElementById('promptBoxBody').innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
+        document.getElementById('promptBoxBody').innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
+        document.getElementById('promptBoxFoot').innerHTML = '<button id="startGame" onclick="Prompt.ok(\''+func+'\')">Start game</button>';
+        console.log('All good')
+    }
+   this.ok = function(func){
+        window["startDatGame"](promptValue1, promptValue2);
+        document.getElementById('promptBox').style.display = "none";
+        document.getElementById('promptOverlay').style.display = "none";
+    }
+}
+
+let Prompt = new startGamePrompt();
+
+
+
+//Configure 'Start Game' button
+const promptBoxBody = document.getElementById("promptBoxBody");
 let startGame = document.getElementById("startGame"); 
-startGame.onclick = () => {
-    const player1Name = playerNamesForm.elements["player1"].value;
-    const player2Name = playerNamesForm.elements["player2"].value; 
+function startDatGame() {
+    const player1Name = document.getElementById('promptValue1').value;
+    const player2Name = document.getElementById('promptValue2').value;
     let player2;   
     if(player1Name != "" && player2Name != "") {
         if (player2Name === "AI"){
