@@ -1,6 +1,10 @@
 function victory(player){
     playerName = player.name;
-    alert("Gratulerer " + playerName + "! Du har vunnet spillet!");
+    if(player.human){
+        alert("Congratulations " + playerName + "! You have won the game!");
+    } else {
+        alert(playername + ", you lost against the AI...  😒"); 
+    }
 }
 
 // Generate random text response
