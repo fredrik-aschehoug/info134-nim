@@ -92,15 +92,52 @@ body {
 
 }
 
-@media screen and (max-width: 992px) {
-  body {}
+@media screen and (max-width: 450px) {
+  /*body {
+    font-size: 10%;
+    width: 50%;
+    height:10%;
+  }*/
+  /*
+  #play{}
+  #indexBanner{}
+  #contentHeadline {
+      margin-left: 1em;
+      margin-top: 1em;
+      padding-bottom: 0;
+  }
+
+  h1 {
+    font-size: 20%
+  }
+  */
+  .player1Buttons{
+    /*-moz-transform: rotate(-180deg); */
+    -webkit-transform: rotate(-180deg);
+    margin-top: 1px;
+    font-size: 0.75em;
+    padding: 0.1px;
+    cursor: pointer;
+    border-radius: 0.1px;
+  }
+
+  .player2Buttons{
+    margin-top: 1px;
+    font-size: 0.75em;
+    padding: 0.1px;
+    cursor: pointer;
+    border-radius: 0.1px;
+  }
+
 
   /*.player1Buttons button {
         -moz-transform: rotate(-180deg);
         -webkit-transform: rotate(-180deg);
   }*/
 }
-
+.bottombox {
+  margin: 100px
+}
 
 #remaining {
     background-color: lavenderblush;
@@ -221,6 +258,11 @@ body {
 }
 
 .player1Buttons button {
+<<<<<<< HEAD
+=======
+    /*-moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg); */
+>>>>>>> ad48e145d6b1a48e6d6e7ae4c28373ca444edf94
     margin-top: 4em;
     margin-bottom: 3em;
     background-color: #FF4600;/*#006682;*/
@@ -428,12 +470,15 @@ h3 a {
 
 }
 
+<<<<<<< HEAD
 #promptValue2 {
     margin-top: 1em;
 }
 
 #radioThree {
     margin-top: 1.5em;
+=======
+>>>>>>> ad48e145d6b1a48e6d6e7ae4c28373ca444edf94
 }
 
 #radioFour {
