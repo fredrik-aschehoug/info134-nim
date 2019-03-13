@@ -20,6 +20,7 @@ function Nim(player1, player2, victory, total, maxGrab){
     this.victory = victory;
     this.total = total;
     this.maxGrab = maxGrab || 3;
+    
     // Tokens for players. Player needs a valid token to make a move
     this.player1.token = true;
     this.player2.token = false;

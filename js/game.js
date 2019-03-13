@@ -21,10 +21,9 @@ const aiText = {
     }
 }
 
-const total = 20; // Temporary
 
 // init global vars
-let nimObj;
+//let nimObj;
 let player1Button1;
 let player1Button2;
 let player1Button3;
@@ -150,13 +149,7 @@ function initGame(nimObj){
         player2Button3.disabled = true;
     }
 }
-
-// Create start game prompt object
-let Prompt = new StartGamePrompt('Enter your names:', startDatGame);
-
-function startDatGame() {
-    const player1Name = document.getElementById('promptValue1').value;
-    const player2Name = document.getElementById('promptValue2').value;
+function createNimObject(player1Name, player2Name, victory, total){
     let player2;   
     if(player1Name != "" && player2Name != "") {
         if (player2Name === "AI"){
@@ -183,9 +176,23 @@ function startDatGame() {
         name: player1Name,
         human: true
     }
+    return new Nim(player1, player2, victory, total);
+}
+// Create start game prompt object
+let Prompt = new StartGamePrompt('Enter your names:', startDatGame);
+
+// Runs when player clicks on Start game button
+function startDatGame() {
+    // Get player names from prompt
+    const player1Name = document.getElementById('promptValue1').value;
+    const player2Name = document.getElementById('promptValue2').value;
+
+    // Generate random total marbles
+    const total = Math.floor((Math.random() * 33) + 12)
     
+    nimObj = createNimObject(player1Name, player2Name, victory, total);
     // Create game object
-    nimObj = new Nim(player1, player2, victory, total);
+    
     
     initGame(nimObj);
 }
