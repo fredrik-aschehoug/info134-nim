@@ -1,14 +1,15 @@
 function StartGamePrompt() {
     this.render = function(dialog, func){
-        let winW = window.innerWidth;
         let winH = window.innerHeight; //to center window
         let promptOverlay = document.getElementById('promptOverlay');
         let promptBox = document.getElementById('promptBox');
+        
+        // Unhide box and overlay
         promptOverlay.style.display = "block";
         promptOverlay.style.height = winH + "em";
-
-        
         promptBox.style.display = "block";
+
+
         document.getElementById('promptBoxHead').innerHTML = "Setup"
         document.getElementById('promptBoxBody').innerHTML = dialog;
         document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">';
@@ -18,7 +19,7 @@ function StartGamePrompt() {
         document.getElementById('promptBoxFoot').innerHTML = '<button id="startGame" onclick="Prompt.ok(\''+func+'\')">Start game</button>';
     }
    this.ok = function(func){
-        window["startDatGame"](promptValue1, promptValue2);
+        window[func](promptValue1, promptValue2);
         document.getElementById('promptBox').style.display = "none";
         document.getElementById('promptOverlay').style.display = "none";
     }

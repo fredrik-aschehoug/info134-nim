@@ -151,11 +151,9 @@ function initGame(nimObj){
     }
 }
 
+// Create start game prompt object
 let Prompt = new StartGamePrompt();
 
-//Configure 'Start Game' button
-const promptBoxBody = document.getElementById("promptBoxBody");
-let startGame = document.getElementById("startGame"); 
 function startDatGame() {
     const player1Name = document.getElementById('promptValue1').value;
     const player2Name = document.getElementById('promptValue2').value;
@@ -173,7 +171,6 @@ function startDatGame() {
             }
         }
     } else if (player1Name != "" && player2Name === "") {
-        playerNamesForm.elements["player2"].value = "AI";
         player2 = {
             name: "AI",
             human: false
