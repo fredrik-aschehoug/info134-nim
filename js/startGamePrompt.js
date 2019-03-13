@@ -21,7 +21,7 @@ function StartGamePrompt(dialog, func) {
         document.getElementById('promptBoxFoot').innerHTML = '<button id="startGame" onclick="Prompt.startGameButton(' + this.func.name + '())">Start game</button>';
     }
    this.startGameButton = function(){
-        window[this.func.name](promptValue1, promptValue2);
+        //window[this.func.name](promptValue1, promptValue2);
         document.getElementById('promptBox').style.display = "none";
         document.getElementById('promptOverlay').style.display = "none";
     }
