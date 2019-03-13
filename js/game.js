@@ -1,5 +1,5 @@
 function victory(player){
-    let     playerName = player.name;
+    let playerName = player.name;
     if(player.human){
         alert("Congratulations " + playerName + "! You have won the game!");
     } else {
@@ -152,7 +152,7 @@ function initGame(nimObj){
 }
 
 // Create start game prompt object
-let Prompt = new StartGamePrompt();
+let Prompt = new StartGamePrompt('Enter your names:', startDatGame);
 
 function startDatGame() {
     const player1Name = document.getElementById('promptValue1').value;

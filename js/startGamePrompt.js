@@ -1,5 +1,7 @@
-function StartGamePrompt() {
-    this.render = function(dialog, func){
+function StartGamePrompt(dialog, func) {
+    this.dialog = dialog;
+    this.func = func;
+    this.render = function(){
         let winH = window.innerHeight; //to center window
         let promptOverlay = document.getElementById('promptOverlay');
         let promptBox = document.getElementById('promptBox');
@@ -11,15 +13,15 @@ function StartGamePrompt() {
 
 
         document.getElementById('promptBoxHead').innerHTML = "Setup"
-        document.getElementById('promptBoxBody').innerHTML = dialog;
+        document.getElementById('promptBoxBody').innerHTML = this.dialog;
         document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">';
         document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>';
         document.getElementById('promptBoxBody').innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
         document.getElementById('promptBoxBody').innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
-        document.getElementById('promptBoxFoot').innerHTML = '<button id="startGame" onclick="Prompt.ok(\''+func+'\')">Start game</button>';
+        document.getElementById('promptBoxFoot').innerHTML = '<button id="startGame" onclick="Prompt.startGameButton(' + this.func.name + '())">Start game</button>';
     }
-   this.ok = function(func){
-        window[func](promptValue1, promptValue2);
+   this.startGameButton = function(){
+        window[this.func](promptValue1, promptValue2);
         document.getElementById('promptBox').style.display = "none";
         document.getElementById('promptOverlay').style.display = "none";
     }
