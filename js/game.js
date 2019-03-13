@@ -24,12 +24,14 @@ const aiText = {
 
 // init global vars
 //let nimObj;
+/*
 let player1Button1;
 let player1Button2;
 let player1Button3;
 let player2Button1;
 let player2Button2;
 let player2Button3;
+*/
 
 function getAIAmount(){
     let amount;
@@ -121,26 +123,6 @@ function disableInvalidButtons(remainingAmount) {
 function initGame(nimObj){
     let remaining = document.getElementById("remaining");
     remaining.innerHTML = nimObj.total;
-
-    //Set up listeners
-    /*
-    player1Button1 = document.getElementById("player1Button1");
-    player1Button2 = document.getElementById("player1Button2");
-    player1Button3 = document.getElementById("player1Button3");
-    */
-    player2Button1 = document.getElementById("player2Button1");
-    player2Button2 = document.getElementById("player2Button2");
-    player2Button3 = document.getElementById("player2Button3");
-
-    /*
-    player1Button1.onclick = () => buttonClickPlayer1(1);
-    player1Button2.onclick = () => buttonClickPlayer1(2);
-    player1Button3.onclick = () => buttonClickPlayer1(3);
-    */
-    player2Button1.onclick = () => buttonClickPlayer2(1);
-    player2Button2.onclick = () => buttonClickPlayer2(2);
-    player2Button3.onclick = () => buttonClickPlayer2(3);
-
     setCurrentPlayer(nimObj.player1.name);
     
     generateButtons(nimObj.maxGrab);
@@ -180,20 +162,33 @@ function createNimObject(player1Name, player2Name, victory, total){
         name: player1Name,
         human: true
     }
-    return new Nim(player1, player2, victory, total);
+    return new Nim(player1, player2, victory, total, 2);
 }
 
 function generateButtons(amount) {
-
+    // Generate html buttons
+    // amount is how many buuttons to generate
     for(let i = 1; i <= amount; i++){
         let player1Div = document.getElementById("player1Buttons");
-        let button = document.createElement("button");
+        let player2Div = document.getElementById("player2Buttons");
+        let button;
+        // Button for player 1
+        button = document.createElement("button");
         button.innerHTML = i.toString();
         button.id = "player1Button" + i;
         player1Div.appendChild(button);
-
-        player1Button = document.getElementById("player1Button" + i);
+        // Event listener
+        let player1Button = document.getElementById("player1Button" + i);
         player1Button.onclick = () => buttonClickPlayer1(i);
+
+        // Button for player 2
+        button = document.createElement("button");
+        button.innerHTML = i.toString();
+        button.id = "player2Button" + i;
+        player2Div.appendChild(button);
+        // Event listener
+        let player2Button = document.getElementById("player2Button" + i);
+        player2Button.onclick = () => buttonClickPlayer2(i);
     }
     
     
@@ -210,8 +205,6 @@ function startDatGame() {
     // Get player names from prompt
     const player1Name = document.getElementById('promptValue1').value;
     const player2Name = document.getElementById('promptValue2').value;
-
-    
 
     // Generate random total marbles
     const total = Math.floor((Math.random() * 33) + 12)
