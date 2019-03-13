@@ -1,51 +1,76 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title>Nim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-    <script defer src="js/nim.js"></script>
     <script defer src="js/game.js"></script>
+    <script defer src="js/nim.js"></script>
 </head>
-<body style="text-align: center;">
-    <!--<div class="banner">
-        <h1>Game of Nim</h1>
-    </div>-->
-    <div class="player1Buttons">
-        <button id="player1Button3">3</button>
-        <button id="player1Button2">2</button>
-        <button id="player1Button1">1</button>
-    </div>
+<body style="text-align: center;" onload="Prompt.render('Enter your names:', 'startGame')">
+        <div class="player1Buttons">
+                <button id="player1Button1">1</button>
+                <button id="player1Button2">2</button>
+                <button id="player1Button3">3</button>
+            </div>
+        
+            <h1><span id="remaining">0</span></h1>
+            <h1 id="yourTurn">Your turn, <span id="currentPlayer">Player</span></h1>
+        
+        
+            <div class="player2Buttons">
+                    <button id="player2Button1">1</button>
+                    <button id="player2Button2">2</button>
+                    <button id="player2Button3">3</button>
+            </div>
+            <!--<div>
+                <form id="playerNamesForm" class="playerNames">
+                   <div id="sideBySide1">
+        
+                    <input id="playerOne" type="text" name="player1" placeholder="Enter Player 1 name">
+                </div>
+                    <br><br>
+                    <div id="sideBySide2">
+                    <input id="playerTwo" class="inline" type="text" name="player2" placeholder="Enter Player 2 name">
+                </div>
+                    <br>
+                </form>-->
+        
+            </div>
+        
+        
+                <div class="footer">
+                    <p id="footer22"><a href="index.html">Regler</a></p>
+                    <p>Footer info</p>
+                </div>
 
-    <h1><span id="remaining">0</span></h1>
-    <h1 id="yourTurn">Your turn, <span id="currentPlayer">Player</span></h1>
-
-    <button id="startGame">Start Game</button>
-    <div class="player2Buttons">
-            <button id="player2Button1">1</button>
-            <button id="player2Button2">2</button>
-            <button id="player2Button3">3</button>
-    </div>
-    <div>
-        <form id="playerNamesForm" class="playerNames">
-           <div id="sideBySide1">
-
-            <input id="playerOne" type="text" name="player1" placeholder="Enter Player 1 name">
-        </div>
-            <br><br>
-            <div id="sideBySide2">
-            <input id="playerTwo" class="inline" type="text" name="player2" placeholder="Enter Player 2 name">
-        </div>
-            <br>
-        </form>
-
-    </div>
+                <div id="promptOverlay"></div>
+                <div id="promptBox">
+                    <div>
+                        <div id="promptBoxHead"></div>
+                        <div id="promptBoxBody"></div>
+                        <div id="promptBoxFoot"></div>
+                    </div>
+                </div>
+                
+            
+                <!--<button onclick="Prompt.render('Try something random:','changeText')">Click here</button>
+    
 
 
-        <div class="footer">
-            <p id="footer22"><a href="index.html">Regler</a></p>
-            <p>Footer info</p>
-        </div>
 </body>
 </html>
+
+<div id="promptOverlay"></div>
+    <div id="promptBox">
+        <div>
+            <div id="promptBoxHead"></div>
+            <div id="promptBoxBody"></div>
+            <div id="promptBoxFoot"></div>
+        </div>
+    </div>
+    <h2 id="status">Default text</h2>
+
+    <button onclick="Prompt.render('Try something random:','changeText')">Click here</button>-->

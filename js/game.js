@@ -1,7 +1,26 @@
+
+
+
+
 function victory(player){
     playerName = player.name;
     alert("Gratulerer " + playerName + "! Du har vunnet spillet!");
 }
+
+// Generate random text response
+const aiText = {
+    text: [
+        'Deploying algorithm',
+        'Calculating optimal move',
+        'Running game theory simulations',
+        'Contemplating'
+    ],
+    get response(){
+        const randomText = this.text[Math.floor(Math.random() * this.text.length)];
+        return randomText + '<span id="wait">.</span>';
+    }
+}
+
 const total = 20; // Temporary
 
 // init global vars
@@ -28,14 +47,24 @@ function buttonClickPlayer1(amount){
     if(nimObj.player1.token){
         calculateRemaining(amount);
         nimObj.checkWin(nimObj.player1);
-        nimObj.reverseTokens();
-        setCurrentPlayer(nimObj.player2.name);
-        disableInvalidButtons(nimObj.total);
-        if(!nimObj.player2.human){
-            let amount = getAIAmount();
-            buttonClickPlayer2(amount);
+        if(nimObj.player2.human) {
+            nimObj.reverseTokens();
+            setCurrentPlayer(nimObj.player2.name);
         }
+        disableInvalidButtons(nimObj.total);
+        
+        if(!nimObj.player2.human){
+            aiAnimation();
+        } 
     }
+}
+
+function aiMakeMove(){
+    let amount = getAIAmount();
+    calculateRemaining(amount);
+    nimObj.checkWin(nimObj.player2);
+    disableInvalidButtons(nimObj.total);
+
 }
 
 function buttonClickPlayer2(amount){
@@ -62,15 +91,21 @@ function setCurrentPlayer(playerName) {
 function aiAnimation(){
     let placeholder = document.getElementById("yourTurn");
     tempStorage = placeholder.innerHTML;
-    placeholder.innerHTML = 'Deploying intelligent algorithm<span id="wait">.</span>'
-    var dots = window.setInterval( function() {
-        var wait = document.getElementById("wait");
+    placeholder.innerHTML = aiText.response;
+    let dotsInterval = window.setInterval( () => {
+        let wait = document.getElementById("wait");
         if ( wait.innerHTML.length > 3 ) 
             wait.innerHTML = "";
         else 
             wait.innerHTML += ".";
-        }, 1000);
-
+    }, 900);
+    let timeout = setTimeout( () => {
+        placeholder.innerHTML = tempStorage;
+        clearInterval(dotsInterval);
+        aiMakeMove();
+    }, 3000)
+    
+    
 }
 
 function disableInvalidButtons(remainingAmount) {
@@ -117,12 +152,43 @@ function initGame(nimObj){
 }
 
 
-// Configure 'Start Game' button
-const playerNamesForm = document.getElementById("playerNamesForm");
+function startGamePrompt() {
+    this.render = function(dialog, func){
+        let winW = window.innerWidth;
+        let winH = window.innerHeight; //to center window
+        let promptOverlay = document.getElementById('promptOverlay');
+        let promptBox = document.getElementById('promptBox');
+        promptOverlay.style.display = "block";
+        promptOverlay.style.height = winH + "em";
+
+        
+        promptBox.style.display = "block";
+        document.getElementById('promptBoxHead').innerHTML = "Setup"
+        document.getElementById('promptBoxBody').innerHTML = dialog;
+        document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">';
+        document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>';
+        document.getElementById('promptBoxBody').innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
+        document.getElementById('promptBoxBody').innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
+        document.getElementById('promptBoxFoot').innerHTML = '<button id="startGame" onclick="Prompt.ok(\''+func+'\')">Start game</button>';
+        console.log('All good')
+    }
+   this.ok = function(func){
+        window["startDatGame"](promptValue1, promptValue2);
+        document.getElementById('promptBox').style.display = "none";
+        document.getElementById('promptOverlay').style.display = "none";
+    }
+}
+
+let Prompt = new startGamePrompt();
+
+
+
+//Configure 'Start Game' button
+const promptBoxBody = document.getElementById("promptBoxBody");
 let startGame = document.getElementById("startGame"); 
-startGame.onclick = () => {
-    const player1Name = playerNamesForm.elements["player1"].value;
-    const player2Name = playerNamesForm.elements["player2"].value; 
+function startDatGame() {
+    const player1Name = document.getElementById('promptValue1').value;
+    const player2Name = document.getElementById('promptValue2').value;
     let player2;   
     if(player1Name != "" && player2Name != "") {
         if (player2Name === "AI"){
@@ -156,4 +222,3 @@ startGame.onclick = () => {
     
     initGame(nimObj);
 }
-
