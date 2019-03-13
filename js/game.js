@@ -1,13 +1,9 @@
-
-
-
-
 function victory(player){
-    playerName = player.name;
+    let     playerName = player.name;
     if(player.human){
         alert("Congratulations " + playerName + "! You have won the game!");
     } else {
-        alert(playername + ", you lost against the AI...  😒"); 
+        alert("You lost against the AI...  😒"); 
     }
 }
 
@@ -103,7 +99,7 @@ function aiAnimation(){
         else 
             wait.innerHTML += ".";
     }, 900);
-    let timeout = setTimeout( () => {
+    let timeout = setTimeout( () => { // Wait for 3 seconds
         placeholder.innerHTML = tempStorage;
         clearInterval(dotsInterval);
         aiMakeMove();
@@ -174,7 +170,6 @@ function startGamePrompt() {
         document.getElementById('promptBoxBody').innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
         document.getElementById('promptBoxBody').innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
         document.getElementById('promptBoxFoot').innerHTML = '<button id="startGame" onclick="Prompt.ok(\''+func+'\')">Start game</button>';
-        console.log('All good')
     }
    this.ok = function(func){
         window["startDatGame"](promptValue1, promptValue2);
