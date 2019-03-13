@@ -5,42 +5,40 @@
     <meta charset="utf-8">
     <title>Nim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/test_style.css">
 
     <script defer src="js/nim.js"></script>
     <script defer src="js/startGamePrompt.js"></script>
     <script defer src="js/game.js"></script>
 </head>
 <body style="text-align: center;" onload="Prompt.render()">
-        <div id="player1Buttons" class="player1Buttons"></div>
-        
+        <div id="player1Buttons" class="player1Buttons">
+
+        </div>
             <h1><span id="remaining">0</span></h1>
             <h1 id="yourTurn">Your turn, <span id="currentPlayer">Player</span></h1>
-        
-            <div id="player2Buttons" class="player2Buttons">
-                    
-            </div>
-            </div>
-                <div class="footer">
-                    <p id="footer22"><a href="index.html">Regler</a></p>
-                    <p>Footer info</p>
-                </div>
 
-                <div id="promptOverlay"></div>
-                <div id="promptBox">
-                    <div>
-                        <div id="promptBoxHead"></div>
-                        <div id="promptBoxBody"></div>
-                        <div id="promptBoxFoot"></div>
-                    </div>
+            <div id="player2Buttons" class="player2Buttons">
+
+            </div>
+            <div class=namemarbles>
+                <div id="promptOverlay">
+
+                <li id="promptBox">
+                    <ul id="promptBoxHead"></ul>
+                    <ul id="promptBoxBody"></ul>
+                    <ul id="promptBoxFoot"></ul>
+
+                </li>
                 </div>
-    </div>
-        <!--for å unngå at ting forsvinne under footer-->
-        <div class=bottombox></div>
+            </div>
+
 
         <div class="footer">
-            <p id="footer22"><a href="index.html">Regler</a></p>
-            <p>Footer info</p>
+          <ul>
+            <li id="footer22"><a href="index.html">Rules</a></li>
+            <li id="footer11"><a href="nim.html">Game</a></li>
+          </ul>
         </div>
 </body>
 </html>
