@@ -14,14 +14,19 @@ body {
   background-attachment: fixed;
 
   /*Flex stuff */
+
   flex-flow: column nowrap;
+  /*flex-direction: row;*/
+
   display: flex;
-  align-items: center;
+  /*align-content: space-between;*/
+  /*align-items: left;*/
   width: auto;
   height: auto;
   min-width: auto;
   min-height: auto;
 }
+
 
 .header {
   font-size: 3em;
@@ -45,6 +50,8 @@ body {
   /*margin-left: 1.5em; */
   font-size: 1em;
 }
+
+
 .header #play{
   padding: 1em;
   top: 0;
@@ -60,11 +67,8 @@ body {
 
 
 
-
-
-
-@media screen and (max-width: 450px) {
-  .player1Buttons{
+@media screen and (max-width: 750px) {
+  .player2Buttons{
     -moz-transform: rotate(-180deg);
     -webkit-transform: rotate(-180deg);
     margin-top: 1px;
@@ -74,27 +78,78 @@ body {
     border-radius: 0.1px;
   }
 
-  .player2Buttons{
+  .player1Buttons{
     margin-top: 1px;
     font-size: 0.75em;
     padding: 0.1px;
     cursor: pointer;
     border-radius: 0.1px;
+
+  }
+
+  .rules{
+     grid-template-columns: 20% auto;
+
+  }
+
+}
+
+
+
+
+#promptOverlay {
+  margin-bottom: 4em;
+  margin: auto;
+  border-radius: 1em;
+  border-style: dashed;
+  border-width: thin;
+  /*border-spacing: 5px;*/
+  max-height: 6em;
+  max-width: 30em;
+  /*display: block;*/
+  padding-bottom: 2em;
+  /*align-items: center;*/
+  /*margin-top: 1px;*/
+  overflow: auto;
+}
+
+
+
+@media screen and (min-width: 750px){
+  #contentHeadline {
+    grid-area: 1 / 1 ;
+  }
+  #contentBoxHowTo {
+    grid-area: 2 / 1;
+  }
+  #imageN {
+    grid-area: 1 / 2;
+    grid-row-end: span 2;
+  }
+
+  .rules {
+    display: grid;
+    grid-gap: auto;
+    grid-auto-columns: 50%;
+    padding: auto;
   }
 }
 
-.namemarbles{
-  top: 0;
-  margin-top: 1px;
-  height: 40em;
-}
-
+/*
 .rules{
-  justify-content: space-around;
-  align-items: left;
+
   margin: auto;
-  color: black;
-}
+  overflow: auto;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+
+  column-gap: 2em;
+  column-width: 50%;
+
+
+}*/
+
 
 .rules h2{
   font-size: 1em;
@@ -103,31 +158,38 @@ body {
   list-style-type: none;
 }
 
+
 img {
-  width: 150;
-  height: 200;
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:1.5em;
+  /*float: right;*/
+  max-width: 100%;
+  max-height: 100%;
+
 }
 
-#contentBox{
-  background-color: white;
-  opacity: 0.5;
-  padding: 5px 20px;
-  align-items: left;
-  border: 2em;
-  border-radius: 1em;
-  margin-top:2em;
-}
-
+/*#imageN, */
+#contentBox,
 #contentBoxHowTo{
+  display: block;
   background-color: white;
   opacity: 0.5;
   padding: 5px 20px;
-  align-items: left;
-  border: 2em;
+  /*align-items: left;*/
+  border: thin;
   border-radius: 1em;
-  margin-top:2em;
-}
+  margin-top:1.5em;
+  margin-bottom:auto;
+  margin-left: auto;
+  margin-right: auto;
+  /*max-width: 50%;*/
 
+  /*clear: right;*/
+
+}
 
 #yourTurn {
   color: black;
@@ -137,25 +199,6 @@ img {
   font-size: 2em;
 }
 
-#promptOverlay {
-  align-items: center;
-  position: sticky;
-  border-spacing: 5px;
-  max-height: 6em;
-  height: 2em;
-  padding: 2em;
-  margin: 2em;
-
-  margin-bottom: 2em;
-  /*background-color: white; */
-  border-width: 1em;
-  border-radius: 1em;
-  /*opacity: 0.6 */
-
-  border-style: dashed;
-  border-width: thin;
-  display: block;
-}
 
 #remaining {
   background-image: url("marble3.png");
@@ -224,7 +267,11 @@ img {
   color: black;
 }
 
-
+/* NIM */
+.game {
+  text-align: center;
+  align-items: center;
+}
 
 /*KNAPPAR*/
 
@@ -266,6 +313,7 @@ background-image: url("2marble.png");
   color: black;         /*gainsboro; /*tekst farge*/
   padding: 1em 1.5em;
   font-weight: bold;
+  margin: auto;
   /*cursor: pointer;*/
   /*border-radius: 0.5em; */
 
@@ -279,7 +327,7 @@ background-image: url("2marble.png");
 
 .player1Buttons button:disabled:hover,
 .player2Buttons button:disabled:hover {
-  background-color:floralwhite;
+  opacity: 0.1;
 }
 
 .player2Buttons button:not(:last.child),
