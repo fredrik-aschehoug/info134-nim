@@ -19,19 +19,7 @@ const aiText = {
         const randomText = this.text[Math.floor(Math.random() * this.text.length)];
         return randomText + '<span id="wait">.</span>';
     }
-}
-
-
-// init global vars
-//let nimObj;
-/*
-let player1Button1;
-let player1Button2;
-let player1Button3;
-let player2Button1;
-let player2Button2;
-let player2Button3;
-*/
+};
 
 function getAIAmount(){
     let amount;
@@ -65,7 +53,6 @@ function aiMakeMove(){
     calculateRemaining(amount);
     nimObj.checkWin(nimObj.player2);
     disableInvalidButtons(nimObj.total);
-
 }
 
 function buttonClickPlayer2(amount){
@@ -104,9 +91,7 @@ function aiAnimation(){
         placeholder.innerHTML = tempStorage;
         clearInterval(dotsInterval);
         aiMakeMove();
-    }, 3000)
-    
-    
+    }, 3000);
 }
 
 function disableInvalidButtons(remainingAmount) {
@@ -117,7 +102,6 @@ function disableInvalidButtons(remainingAmount) {
         player1Button3.disabled = true;
         player2Button3.disabled = true;
     } 
-    
 }
 
 function initGame(nimObj){
@@ -142,18 +126,18 @@ function createNimObject(player1Name, player2Name, victory, total){
             player2 = {
                 name: "AI",
                 human: false
-            }
+            };
         } else {
             player2 = {
                 name: player2Name,
                 human: true
-            }
+            };
         }
     } else if (player1Name != "" && player2Name === "") {
         player2 = {
             name: "AI",
             human: false
-        }
+        };
     } else {
         alert("Player 1 needs a name!")
         throw "Player 1 is missing name"
@@ -161,8 +145,8 @@ function createNimObject(player1Name, player2Name, victory, total){
     const player1 = {
         name: player1Name,
         human: true
-    }
-    return new Nim(player1, player2, victory, total, 2);
+    };
+    return new Nim(player1, player2, victory, total, 4);
 }
 
 function generateButtons(amount) {
@@ -190,15 +174,10 @@ function generateButtons(amount) {
         let player2Button = document.getElementById("player2Button" + i);
         player2Button.onclick = () => buttonClickPlayer2(i);
     }
-    
-    
 }
-
 
 // Create start game prompt object
 let Prompt = new StartGamePrompt('Enter your names:', startDatGame);
-
-
 
 // Runs when player clicks on Start game button
 function startDatGame() {
@@ -207,12 +186,11 @@ function startDatGame() {
     const player2Name = document.getElementById('promptValue2').value;
 
     // Generate random total marbles
-    const total = Math.floor((Math.random() * 33) + 12)
+    const total = Math.floor((Math.random() * 33) + 12);
     
     nimObj = createNimObject(player1Name, player2Name, victory, total);
     // Create game object
     
     console.log("running startdatgame");
     initGame(nimObj);
-    
 }

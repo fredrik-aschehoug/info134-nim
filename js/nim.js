@@ -37,7 +37,7 @@ function Nim(player1, player2, victory, total, maxGrab){
         if(this.total === 0){
             this.victory(player);
         }
-    }
+    };
 }
 
 // Oppgave 2.1 og 2.2 er løst i denne filen
