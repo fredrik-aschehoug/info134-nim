@@ -3,8 +3,6 @@ body {
   flex-flow: column nowrap;
   /*overflow: visible !important;*/
   /*overflow: hidden;*/
-
-
   width: 100%;
   height: auto;
   min-width: 100%;
@@ -25,6 +23,10 @@ body {
   font-size: 100%;
 }
 
+
+
+
+/* ----------------- header ----------------- header ----------------- */
 .header {
   overflow: hidden;
   width: 100%;
@@ -104,7 +106,6 @@ body {
     margin-right: 2em;
     /*align-items: start;*/
     justify-content: space-evenly;
-
   }
 }
 
@@ -194,7 +195,7 @@ img {
   background-position: center;
   background-size: 2em 2em;
   color: darkslategray;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: bold;
 }
 
@@ -220,7 +221,55 @@ img {
     cursor: pointer;
     font-size: 0.75em;
   }
+  #remaining {
+    display: inline-block;
+    max-width:100%;
+    max-height:100%;
+
+    font-size: 2em;
+
+  }
 }
+@media screen and (min-width: 600px) {
+
+  .game{
+    display: grid;
+    width: 90%;
+    align-self: center;
+    grid-template-columns: 10% auto 10% ;
+    grid-template-rows: 25% 25% 25% 25%;
+    margin-top: 4em;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: auto;
+  }
+
+  .player1Buttons {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+  .midten{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-row-end: span 2;
+  }
+  .player1Buttons  {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+
+  .namemarbles{
+    grid-column-start: 2;
+    grid-row-start: 3;
+    grid-row-end: 5;
+  }
+}
+
+
+
 
 #player1Button1,
 #player2Button1{
