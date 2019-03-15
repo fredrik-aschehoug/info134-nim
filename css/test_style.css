@@ -2,11 +2,13 @@ body {
   display: flex;
   flex-flow: column nowrap;
   /*overflow: visible !important;*/
-  /*overflow: hidden;*/
+  /*overflow: auto;*/
+  overflow-x:hidden;
   width: 100%;
+  /*fit-content: auto;*/
   height: auto;
-  min-width: 100%;
-  min-height: auto;
+  max-width: 100%;
+  max-height: auto;
 
   border-spacing: 0px;
   margin : 0;
@@ -21,6 +23,7 @@ body {
 
   font-family: Arial, sans-serif;
   font-size: 100%;
+
 }
 
 
@@ -35,6 +38,7 @@ body {
   opacity: 0.6;
   color: black;
   font-size: 3em;
+
 }
 
 .header h1{
@@ -65,10 +69,6 @@ body {
 
 /* ----------------- index ----------------- index ----------------- */
 @media screen and (max-width: 600px) {
-  .rules{
-    margin-left: 2em;
-    margin-right:2em;
-  }
   .rules ul{
     list-style: none;
     padding: 0;
@@ -82,33 +82,36 @@ body {
 
 
 @media screen and (min-width: 600px){
+/*row, column height bredde*/
 
   #contentHeadline {
-    grid-area: 1 / 1 ;
+    grid-area: 1 / 1 / 1 /1;
   }
   #contentBoxHowTo {
-    grid-area: 2 / 1;
-
+    grid-area: 2 / 1 / 1 /1;
   }
   #imageN {
     overflow: visible;
-    grid-area: 1 / 2;
+    grid-area: 1 / 2 / 1/ 2;
     grid-row-end: span 2;
-    width: 50%;
+    width: 100%;
 
   }
-
   .rules {
     display: grid;
+    grid-template-columns: 48% 48%;
+    align-self: center;
     grid-gap: 2em;
     padding: 1em;
-    margin-left: 2em;
-    margin-right: 2em;
+
     /*align-items: start;*/
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
   }
 }
-
+.rules{
+  margin-left: 2em;
+  margin-right:2em;
+}
 .rules h2{
   font-size: 1em;
 }
@@ -116,25 +119,22 @@ body {
   list-style-type: none;
 }
 
-
 img {
   display: block;
-  overflow: visible !important;
   max-width: 100%;
   max-height: 100%;
   padding: 0;
   border-radius: 1em;
-  margin-top:1.5em;
+  margin-top:1em;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
 
 }
-/*img,*/
+
 #contentBox,
 #contentBoxHowTo{
   display: block;
-  overflow: visible !important;
   max-width: 100%;
   padding: 1em 2em;
   border: thin;
@@ -143,7 +143,6 @@ img {
   margin-bottom:auto;
   margin-left: auto;
   margin-right: auto;
-
   background-color: white;
   opacity: 0.5;
 
@@ -223,9 +222,6 @@ img {
   }
   #remaining {
     display: inline-block;
-    max-width:100%;
-    max-height:100%;
-
     font-size: 2em;
 
   }
@@ -234,41 +230,48 @@ img {
 
   .game{
     display: grid;
-    width: 90%;
+    width: 100%;
     align-self: center;
+
     grid-template-columns: 10% auto 10% ;
     grid-template-rows: 25% 25% 25% 25%;
-    margin-top: 4em;
+    margin-top: 2em;
     margin-left: 2em;
     margin-right: 2em;
     padding: auto;
+    border: auto;
   }
 
   .player1Buttons {
     grid-column-start: 1;
     grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row-end: span 4;
+    padding-left: 2em;
   }
-  .midten{
-    grid-column-start: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-row-end: span 2;
-  }
-  .player1Buttons  {
+
+  .player2Buttons  {
     grid-column-start: 3;
     grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row-end: span 4;
+    padding-right: 2em;
+  }
+
+  .midten{
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-row-end: span 3;
   }
 
   .namemarbles{
-    grid-column-start: 2;
-    grid-row-start: 3;
-    grid-row-end: 5;
+    grid-column: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-row-end: span 2;
   }
+
+
 }
-
-
 
 
 #player1Button1,
@@ -334,14 +337,19 @@ img {
   opacity: 0.3;
 }
 
+
+
+
 /* ----------------- footer ----------------- footer ----------------- */
+
 .footer {
   bottom: 0;
   position: fixed;
   overflow: hidden;
-  /*height: 5em;*/
+  /*height: 2em;*/
   width: 100%;
-  margin: 0 auto;
+  padding: 0.1em 0.1em;
+  margin: auto;
   color: darkslategray;
   background-color: white;
   opacity: 0.6;
@@ -350,7 +358,7 @@ img {
 
 .footer ul{
   list-style-type: none;
-  padding: 0;
+  padding: 0.1em;
   margin: 0;
 }
 
@@ -360,7 +368,6 @@ img {
 }
 
 .footer li a{
-  display: block;
   color: #000;
   padding: 8px 16px;
   text-decoration: none;
