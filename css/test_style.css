@@ -1,155 +1,112 @@
 body {
-  margin : 0;
+  display: flex;
+  flex-flow: column nowrap;
+  /*overflow: visible !important;*/
+  /*overflow: hidden;*/
+
+
+  width: 100%;
+  height: auto;
+  min-width: 100%;
+  min-height: auto;
+
   border-spacing: 0px;
-  overflow: visible !important;
+  margin : 0;
+
   background: -webkit-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
   background: -moz-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
   background: -ms-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
   background: -o-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
   background: linear-gradient(45deg, #085078 10%, #85d8ce 90%);
-  /*background-image: url("../pwQ4lPy.jpg");*/
-  font-family: Arial, sans-serif;
-  font-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  /*Flex stuff */
-
-  flex-flow: column nowrap;
-  /*flex-direction: row;*/
-
-  display: flex;
-  /*align-content: space-between;*/
-  /*align-items: left;*/
-  width: auto;
-  height: auto;
-  min-width: auto;
-  min-height: auto;
+  font-family: Arial, sans-serif;
+  font-size: 100%;
 }
-
 
 .header {
-  font-size: 3em;
   overflow: hidden;
+  width: 100%;
+  padding: 0.2em 0.5em;
   background-color: white;
   opacity: 0.6;
-  padding: 14px 16px;
-  width: 100%;
   color: black;
+  font-size: 3em;
 }
-.header h1{
-  float: left;
-  display: block;
-  text-decoration: none;
-  /*color: #f2f2f2;*/
-  /*text-align: center;*/
-  padding: 0.1em;
 
-  margin: 0;
-  margin-right: 0;
-  /*margin-left: 1.5em; */
+.header h1{
+  display: block;
+  float: left;
+  padding: 0.1em;
+  margin: auto;
+  text-decoration: none;
   font-size: 1em;
 }
 
-
 .header #play{
-  padding: 1em;
   top: 0;
-  opacity: 0.8;
-  color: black;
+  padding: 1em;
   opacity: 0.6;
+  color: black;
+  text-decoration: none;
 }
-.header #play hover{
-  background-color: grey;
-  opacity: 0.9;
+
+.header #play:hover{
+  /*background-color: grey;*/
+  opacity: 0.2;
   color: black;
 }
 
 
 
-@media screen and (max-width: 750px) {
-  .player2Buttons{
-    -moz-transform: rotate(-180deg);
-    -webkit-transform: rotate(-180deg);
-    margin-top: 1px;
-    font-size: 0.75em;
-    padding: 0.1px;
-    cursor: pointer;
-    border-radius: 0.1px;
-  }
 
-  .player1Buttons{
-    margin-top: 1px;
-    font-size: 0.75em;
-    padding: 0.1px;
-    cursor: pointer;
-    border-radius: 0.1px;
-
-  }
-
+/* ----------------- index ----------------- index ----------------- */
+@media screen and (max-width: 600px) {
   .rules{
-     grid-template-columns: 20% auto;
-
+    margin-left: 2em;
+    margin-right:2em;
+  }
+  .rules ul{
+    list-style: none;
+    padding: 0;
+  }
+  li::before {
+    content: "";
+    padding-left: 0;
   }
 
 }
 
 
+@media screen and (min-width: 600px){
 
-
-#promptOverlay {
-  margin-bottom: 4em;
-  margin: auto;
-  border-radius: 1em;
-  border-style: dashed;
-  border-width: thin;
-  /*border-spacing: 5px;*/
-  max-height: 6em;
-  max-width: 30em;
-  /*display: block;*/
-  padding-bottom: 2em;
-  /*align-items: center;*/
-  /*margin-top: 1px;*/
-  overflow: auto;
-}
-
-
-
-@media screen and (min-width: 750px){
   #contentHeadline {
     grid-area: 1 / 1 ;
   }
   #contentBoxHowTo {
     grid-area: 2 / 1;
+
   }
   #imageN {
+    overflow: visible;
     grid-area: 1 / 2;
     grid-row-end: span 2;
+    width: 50%;
+
   }
 
   .rules {
     display: grid;
-    grid-gap: auto;
-    grid-auto-columns: 50%;
-    padding: auto;
+    grid-gap: 2em;
+    padding: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    /*align-items: start;*/
+    justify-content: space-evenly;
+
   }
 }
-
-/*
-.rules{
-
-  margin: auto;
-  overflow: auto;
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
-
-  column-gap: 2em;
-  column-width: 50%;
-
-
-}*/
-
 
 .rules h2{
   font-size: 1em;
@@ -161,128 +118,117 @@ body {
 
 img {
   display: block;
-
-  margin-left: auto;
-  margin-right: auto;
-  margin-top:1.5em;
-  /*float: right;*/
+  overflow: visible !important;
   max-width: 100%;
   max-height: 100%;
+  padding: 0;
+  border-radius: 1em;
+  margin-top:1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
 
 }
-
-/*#imageN, */
+/*img,*/
 #contentBox,
 #contentBoxHowTo{
   display: block;
-  background-color: white;
-  opacity: 0.5;
-  padding: 5px 20px;
-  /*align-items: left;*/
+  overflow: visible !important;
+  max-width: 100%;
+  padding: 1em 2em;
   border: thin;
   border-radius: 1em;
-  margin-top:1.5em;
+  margin-top:1em;
   margin-bottom:auto;
   margin-left: auto;
   margin-right: auto;
-  /*max-width: 50%;*/
 
-  /*clear: right;*/
-
-}
-
-#yourTurn {
-  color: black;
-  margin: 0;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-size: 2em;
-}
-
-
-#remaining {
-  background-image: url("marble3.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 2em 2em;
-  display: inline-block;
-  /*background-color: lavenderblush;*/
-  border: none;
-  color: darkslategray;
-  padding: 0.5em 0.75em;
-  font-size: 2em;
-  max-width:100%;
-  max-height:100%;
-  font-weight: bold;
-  margin: 0;
-  border-style: transparent;
-  /*border-width: transparent;
-  border-radius: 0.5em;
-  margin-right: 1em;*/
-}
-
-/* Footer */
-.footer {
-  position: fixed;
-  bottom: 0;
-  position: fixed; /*relative;*/
-  /*height: 5em;*/
-  width: 100%;
-  /* background-color: #f1f1f1; */
-  color: darkslategray;
-  text-decoration: none;
-  /*display: inline;*/
-  margin: 0 auto;
   background-color: white;
-  opacity: 0.6;
+  opacity: 0.5;
 
-  /*
-  z-index: 1000;
-
-  border-bottom: 0.01em;
-  border-left: 0.01em;
-  border-right: 0.01em;
-  border-style: solid;
-  border-color: darkslategray;*/
 }
 
-.footer ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.footer li {
-  float: left;
-  border:1px ;
-}
-.footer li a{
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-.footer li a:hover {
-  background-color: grey;
-  opacity: 0.9;
-  color: black;
-}
 
-/* NIM */
+
+
+/* ----------------- nim ----------------- nim ----------------- */
 .game {
   text-align: center;
   align-items: center;
 }
 
-/*KNAPPAR*/
+#promptOverlay {
+  display: block;
+  overflow: auto;
+  max-height: 7em;
+  max-width: 30em;
+  border-radius: 1em;
+  border-style: dashed;
+  border-width: thin;
+  /*border-spacing: 5px;*/
+  padding-bottom: 2em;
+  padding-left: auto;
+  padding-right: auto;
+  margin: auto;
+  /*margin-bottom: 4em;*/
+}
+
+#yourTurn {
+  margin: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: black;
+  font-size: 2em;
+}
+
+#remaining {
+  display: inline-block;
+  max-width:100%;
+  max-height:100%;
+  border: none;
+  padding: 0.5em 0.75em;
+  border-style: transparent;
+  margin: 0;
+  background-image: url("marble3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2em 2em;
+  color: darkslategray;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+
+
+
+/* ----------------- buttons ----------------- buttons ----------------- */
+@media screen and (max-width: 600px) {
+  .player2Buttons{
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    border-radius: 0.1px;
+    padding: 0.1px;
+    margin-top: 1px;
+    cursor: pointer;
+    font-size: 0.75em;
+  }
+
+  .player1Buttons{
+    border-radius: 0.1px;
+    padding: 0.1px;
+    margin-top: 1px;
+    cursor: pointer;
+    font-size: 0.75em;
+  }
+}
 
 #player1Button1,
 #player2Button1{
   background-image: url("marble2.png");
 }
-
 #player1Button2,
 #player2Button2{
-background-image: url("2marble.png");
+  background-image: url("2marble.png");
 }
 #player1Button3,
 #player2Button3{
@@ -293,36 +239,28 @@ background-image: url("2marble.png");
   background-image: url("4marble.png");
 }
 
-
 .player1Buttons button,
 .player2Buttons button {
-  background-color: transparent; /*#85088e;/*#006682;*/
-  background-repeat: no-repeat;
-  background-position: center; /*<left|right>;*/
-  background-size: cover;
   display: inline-block;
-
-  /*padding-<left|right>: <width of image> px; */
-  /*margin-top: 0.5em;*/
   height: 4em;
   width: 4em;
-  font-size: 2em;
-  border-style: none;     /*solid; */
-  border-width: none;    /*thin;*/
-  /* border-color: darkslategray; */
-  color: black;         /*gainsboro; /*tekst farge*/
   padding: 1em 1.5em;
-  font-weight: bold;
+  border-style: none;
+  border-width: none;
   margin: auto;
-  /*cursor: pointer;*/
-  /*border-radius: 0.5em; */
-
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: black;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .player1Buttons button:disabled,
 .player2Buttons button:disabled {
   opacity: 0.3;
-  /*background-color: floralwhite;*/
 }
 
 .player1Buttons button:disabled:hover,
@@ -344,6 +282,43 @@ background-image: url("2marble.png");
 
 .player1Buttons button:hover,
 .player2Buttons button:hover {
-  /*background-color: #003766;*/
   opacity: 0.3;
+}
+
+/* ----------------- footer ----------------- footer ----------------- */
+.footer {
+  bottom: 0;
+  position: fixed;
+  overflow: hidden;
+  /*height: 5em;*/
+  width: 100%;
+  margin: 0 auto;
+  color: darkslategray;
+  background-color: white;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.footer ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer li {
+  float: left;
+  border:1px ;
+}
+
+.footer li a{
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.footer li a:hover {
+  background-color: grey;
+  opacity: 0.9;
+  color: black;
 }
