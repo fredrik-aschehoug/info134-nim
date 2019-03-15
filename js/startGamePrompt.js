@@ -1,28 +1,42 @@
 function StartGamePrompt(dialog, func) {
+    // Parameters
     this.dialog = dialog;
     this.func = func;
+    // DOM elements
+    this.yourTurnElement = document.getElementById("yourTurn");
+    this.remainingElement = document.getElementById("remaining");
+    this.prompt = {
+        overlay: document.getElementById('promptOverlay'),
+        box: document.getElementById('promptBox'),
+        head: document.getElementById('promptBoxHead'),
+        body: document.getElementById('promptBoxBody'),
+        foot: document.getElementById('promptBoxFoot')
+    };
+    // Methods
     this.render = function(){
-        let winH = window.innerHeight; //to center window
-        let promptOverlay = document.getElementById('promptOverlay');
-        let promptBox = document.getElementById('promptBox');
-        
-        // Unhide box and overlay
-        promptOverlay.style.display = "block";
-        promptOverlay.style.height = winH + "em";
-        promptBox.style.display = "block";
-
-
-        document.getElementById('promptBoxHead').innerHTML = "Setup";
-        document.getElementById('promptBoxBody').innerHTML = this.dialog;
-        document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">';
-        document.getElementById('promptBoxBody').innerHTML += '<input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>';
-        document.getElementById('promptBoxBody').innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
-        document.getElementById('promptBoxBody').innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
-        document.getElementById('promptBoxFoot').innerHTML = '<button id="startGame" onclick="Prompt.startGameButton(' + this.func.name + '())">Start game</button>';
+        let winH = window.innerHeight; //to center window 
+        // Hide game elements
+        this.yourTurnElement.style.visibility = "hidden";
+        this.remainingElement.style.visibility = "hidden";
+        // Show box and overlay
+        this.prompt.overlay.style.display = "block";
+        this.prompt.overlay.style.height = winH + "em";
+        this.prompt.box.style.display = "block";
+        // Create prompt
+        this.prompt.head.innerHTML = "Setup";
+        this.prompt.body.innerHTML = this.dialog;
+        this.prompt.body.innerHTML += '<input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">';
+        this.prompt.body.innerHTML += '<input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>';
+        this.prompt.body.innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
+        this.prompt.body.innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
+        this.prompt.foot.innerHTML = '<button id="startGame" onclick="Prompt.startGameButton(' + this.func.name + '())">Start game</button>';
     };
    this.startGameButton = function(){
-        //window[this.func.name](promptValue1, promptValue2);
-        document.getElementById('promptBox').style.display = "none";
-        document.getElementById('promptOverlay').style.display = "none";
+        // Hide prompt
+        this.prompt.box.style.display = "none";
+        this.prompt.overlay.style.display = "none";
+        // Show game elements
+        this.yourTurnElement.style.visibility = "visible";
+        this.remainingElement.style.visibility = "visible";
     };
 }
