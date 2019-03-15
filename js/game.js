@@ -108,7 +108,6 @@ function initGame(nimObj){
     let remaining = document.getElementById("remaining");
     remaining.innerHTML = nimObj.total;
     setCurrentPlayer(nimObj.player1.name);
-    
     generateButtons(nimObj.maxGrab);
     console.log("running initgame");
     
@@ -139,14 +138,14 @@ function createNimObject(player1Name, player2Name, victory, total){
             human: false
         };
     } else {
-        alert("Player 1 needs a name!")
-        throw "Player 1 is missing name"
+        alert("Player 1 needs a name!");
+        throw "Player 1 is missing name";
     }
     const player1 = {
         name: player1Name,
         human: true
     };
-    return new Nim(player1, player2, victory, total, 4);
+    return new Nim(player1, player2, victory, total);
 }
 
 function generateButtons(amount) {
