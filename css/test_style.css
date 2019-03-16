@@ -160,7 +160,7 @@ img {
 #promptOverlay {
   display: block;
   overflow: auto;
-  max-height: 7em;
+  max-height: 12em;
   max-width: 30em;
   border-radius: 1em;
   border-style: dashed;

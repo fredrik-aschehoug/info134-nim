@@ -24,12 +24,18 @@ function StartGamePrompt(dialog, func) {
         this.prompt.box.style.display = "block";
         // Create prompt
         this.prompt.head.innerHTML = "Setup";
-        this.prompt.body.innerHTML = this.dialog;
-        this.prompt.body.innerHTML += '<input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">';
-        this.prompt.body.innerHTML += '<input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>';
-        this.prompt.body.innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
-        this.prompt.body.innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
-        this.prompt.foot.innerHTML = '<button id="startGame" onclick="Prompt.startGameButton(' + this.func.name + '())">Start game</button>';
+        this.prompt.body.innerHTML = `
+            ${this.dialog}<br>
+            <input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">
+            <input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>
+            <form id="radios">
+            <input id="radioTwo" type="radio" name="btnNum" value="2"> 2 &emsp;
+            <input id="radioThree" type="radio" name="btnNum" value="3" checked> 3 &emsp;
+            <input id="radioFour" type="radio" name="btnNum" value="4"> 4
+            </form><br>
+            <button id="startGame" onclick="Prompt.startGameButton(${this.func.name}())">Start game</button>
+        `;
+        this.prompt.foot.innerHTML = '';
     };
    this.startGameButton = function(){
         // Hide prompt
