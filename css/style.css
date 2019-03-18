@@ -53,7 +53,6 @@ body {
 }
 
 .header #play:hover{
-  /*background-color: grey;*/
   opacity: 0.2;
   color: black;
 }
@@ -97,9 +96,6 @@ body {
     align-self: center;
     grid-gap: 2em;
     padding: 1em;
-
-    /*align-items: start;*/
-    /*justify-content: space-evenly;*/
   }
 }
 .rules{
@@ -151,8 +147,8 @@ img {
 #promptOverlay {
   display: block;
   overflow: auto;
-  max-height: 18em;
-  max-width: 30em;
+  max-height: 19em;
+  max-width: 25em;
   border-radius: 1em;
   border-style: dashed;
   border-width: thin;
@@ -160,6 +156,14 @@ img {
   padding-left: auto;
   padding-right: auto;
   margin: auto;
+}
+
+#promptValue1 {
+  border-radius: .25em;
+}
+
+#promptValue2 {
+  border-radius: .25em;
 }
 
 #yourTurn {
@@ -199,38 +203,45 @@ img {
 
 #alertOverlay {
   display: none;
-  background-image: url("alertBackground.jpg");
-  overflow: auto;
-  max-height: 15em;
-  max-width: 25em;
-  border-radius: 1em;
-  border-style: solid;
-  border-width: thin;
-  padding-bottom: 2em;
-  padding-left: auto;
-  padding-right: auto;
-  margin: auto;
-  /*display: none;
   opacity: 0.85;
   position: fixed;
   top: 0px;
   left: 0px;
   background: #FFF;
+  margin: auto;
   width: 100%;
-  z-index: 10;*/
+  z-index: 10;
 }
 
 #alertBox {
-  display: none;
-  position: fixed;
-  color: lightcyan;
+  background-image: url("alertBackground.jpg");
+  visibility: hidden;
+  border-radius: 1em;
+  border-style: solid;
+  border-width: thin;
+  padding-left: auto;
+  padding-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  color: midnightblue;
   font-size: 1em;
   text-align: center;
-  margin: auto;
   margin-top: 15.2em;
   width: 15em;
   z-index: 10;
-  /*background-image: url("alertBackground.jpg");*/
+  -webkit-animation: fadein 1.5s;
+  animation: fadein 1.5s;
+}
+
+
+@-webkit-keyframes fadein {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 #alertBox ul{
@@ -243,10 +254,6 @@ img {
   padding-left: 0;
 }
 
-/*#alertBox > ul > #alertBoxBody {
-  padding: 2em;
-
-}*/
 
 /* ----------------- buttons ----------------- buttons ----------------- */
 @media screen and (max-width: 600px) {
@@ -325,6 +332,7 @@ img {
   }
 
   .namemarbles{
+    color: midnightblue;
     font-weight: bold;
     grid-column: 2;
     grid-row-start: 2;
@@ -364,7 +372,6 @@ img {
 #radioThree,
 #radioFour{
   float: right;
-  /*padding: 1em;*/
   background-size:contain;
   height: 50px;
   width: 50px;
@@ -432,11 +439,13 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: black;
-  font-size: 0.75em;
+  color: midnightblue;
+  font-size: 0.85em;
   font-weight: bold;
   cursor: pointer;
 }
+
+
 
 #player1Button1,
 #player2Button1{
@@ -510,7 +519,6 @@ img {
   bottom: 0;
   position: fixed;
   overflow: hidden;
-  /*height: 2em;*/
   width: 100%;
   padding: 0.1em 0.1em;
   margin: auto;

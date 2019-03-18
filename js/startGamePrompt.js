@@ -23,8 +23,8 @@ function StartGamePrompt(dialog, func) {
         // Create prompt
         this.prompt.body.innerHTML = `
             ${this.dialog}<br><br>
-            <input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">
-            <input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br><br>
+            <input id="promptValue1" type="text" name="player1" size="12" maxlength="12" placeholder="Player 1 name">
+            <input id="promptValue2" type="text" name="player2" size="12" maxlength="12" placeholder="Player 2 name"><br><br>
             Number of marbles:
             <form id="radios">
             <label for="radioTwo">2<br/>
@@ -36,10 +36,9 @@ function StartGamePrompt(dialog, func) {
             <label for="radioFour">4<br/>
             <input id="radioFour" type="radio" name="btnNum" value="4">
             </label>
-            </form><br>
+            </form><br><br>
             <button id="startGame" onclick="Prompt.startGameButton(${this.func.name}())">Start game</button>
         `;
-        //this.prompt.foot.innerHTML = '';
     };
    this.startGameButton = function(){
         // Hide prompt

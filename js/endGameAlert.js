@@ -17,25 +17,14 @@ function EndGameAlert() {
         // Show box and overlay
         this.alert.overlay.style.display = "block";
         this.alert.overlay.style.height = winH + "em";
-        this.alert.box.style.display = "block";
+        this.alert.box.style.visibility = "visible";
 
         // Create alert
         this.alert.body.innerHTML = `
-            Congratulations!<br>
-            ${playerName} wins<br><br>
-            <a href="nim.html"><button id="startGame">New Game</button></a>
+            Game Over!<br><br>
+            ${playerName} wins!<br><br>
+            <a href="nim.html" style="text-decoration: none;"><button id="startGame" style="text-decoration: none;">New Game</button></a>
             `;
-
-
-        /*document.getElementById('alertBoxHead').innerHTML = "Congratulations!" + playerName + "! You have won the game!";
-        //document.getElementById('alertBoxBody').innerHTML = this.dialog;
-        document.getElementById('alertBoxBody').innerHTML += "Click or Push for New Game"
-        document.getElementById('alertBoxFoot').innerHTML = '<button id="startGame"><a href="nim.html">New Game</a></button>'
-        document.getElementById('alertBoxFoot').innerHTML += '<button id="startGame" onclick="Alert.retry(' + this.func.name + '())">Retry</button>'; //'<button id="startGame" onclick="Alert.tryAgain(' + this.func.name + '())">Try Again</button>';
-        //document.getElementById('alertBoxBody').innerHTML += '<input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>';
-       // document.getElementById('alertBoxBody').innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
-        //document.getElementById('alertBoxBody').innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
-        //document.getElementById('alertBoxFoot').innerHTML = '<button id="startGame" onclick="Alert.newGame(' + this.func.name + '())">Try Again</button>';*/
         
     };
     this.AIrender = function(){
@@ -47,37 +36,13 @@ function EndGameAlert() {
         // Hide game elements
         this.alert.overlay.style.display = "block";
         this.alert.overlay.style.height = winH + "em";
-        this.alert.box.style.display = "block";
+        this.alert.box.style.visibility = "visible";
 
         this.alert.body.innerHTML = `
-            <p>You lost against the AI...  😒<br></p>
+            Game Over!<br><br>
+            You lost against the AI...  😒<br><br>
             
-            <button id="startGame"><a href="nim.html">New Game</a></button>
+            <a href="nim.html" style="text-decoration: none;"><button id="startGame" style="text-decoration: none;">New Game</button></a>
             `;
     };
 }
-
-       /* document.getElementById('alertBoxHead').innerHTML = "";
-        document.getElementById('alertBoxBody').innerHTML = "Click or Push for New Game";
-        document.getElementById('alertBoxFoot').innerHTML += '<button><a href="nim.html">New Game</a></button>'
-        //document.getElementById('alertBoxFoot').innerHTML = '<button>Test</button>' //'<button id="startGame" onclick="Alert.tryAgain(' + this.func.name + '())">Try Again</button>';
-
-    }
-   this.retry = function(){
-        //window[this.func.name](promptValue1, promptValue2);
-        document.getElementById('alertBox').style.display = "none";
-        document.getElementById('alertOverlay').style.display = "none";
-    };*/
-
-
-         /* <div class=namemarbles>
-              <div id="alertOverlay">
-
-              <li id="alertBox">
-                  <ul id="alertBoxHead"></ul>
-                  <ul id="alertBoxBody"></ul>
-                  <ul id="alertBoxFoot"></ul>
-
-              </li>
-              </div>
-          </div>*/

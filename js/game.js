@@ -199,7 +199,7 @@ function generateButtons(amount) {
 
 // Create start game prompt object
 // Bound to body onload
-let Prompt = new StartGamePrompt('Enter your names:', startGame);
+let Prompt = new StartGamePrompt('<br>Enter your names:', startGame);
 let Alert = new EndGameAlert();
 
 // Runs when player clicks on Start game button
