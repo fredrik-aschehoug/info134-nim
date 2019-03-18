@@ -1,9 +1,9 @@
 function victory(player){
     let playerName = player.name;
     if(player.human){
-        alert("Congratulations " + playerName + "! You have won the game!");
+        Alert.render(playerName);
     } else {
-        alert("You lost against the AI...  😒"); 
+        Alert.AIrender();
     }
 }
 
@@ -200,6 +200,7 @@ function generateButtons(amount) {
 // Create start game prompt object
 // Bound to body onload
 let Prompt = new StartGamePrompt('Enter your names:', startGame);
+let Alert = new EndGameAlert();
 
 // Runs when player clicks on Start game button
 function startGame() {

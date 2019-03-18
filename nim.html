@@ -8,6 +8,7 @@
 
     <script defer src="js/nim.js"></script>
     <script defer src="js/startGamePrompt.js"></script>
+    <script defer src="js/EndGameAlert.js"></script>
     <script defer src="js/game.js"></script>
 
 </head>
@@ -23,17 +24,24 @@
             <h2><span id="remaining">0</span></h2>
             <h2 id="yourTurn">Your turn, <span id="currentPlayer">Player</span></h2>
         </div>
+        <button onclick=Alert.render()>Alert render</button>
 
         <div id="player1Buttons" class="player1Buttons"></div>
         <div class=namemarbles>
             <div id="promptOverlay">
               <li id="promptBox">
-                <ul id="promptBoxHead"></ul>
                 <ul id="promptBoxBody"></ul>
-                <ul id="promptBoxFoot"></ul>
               </li>
             </div>
          </div>
+    </div>
+
+    <div class=namemarbles>
+      <div id="alertOverlay">
+        <li id="alertBox">
+           <ul id="alertBoxBody"></ul>
+        </li>
+      </div>
     </div>
 
     <div class="footer">

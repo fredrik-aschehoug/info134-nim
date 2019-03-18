@@ -5,14 +5,11 @@ function EndGameAlert() {
     this.alert = {
         overlay: document.getElementById('alertOverlay'),
         box: document.getElementById('alertBox'),
-        head: document.getElementById('alertBoxHead'),
-        body: document.getElementById('alertBoxBody'),
-        foot: document.getElementById('alertBoxFoot')
+        body: document.getElementById('alertBoxBody')
     };    
     // Methods
     this.render = function(playerName){
         let winH = window.innerHeight; //to center window
-    
         // Hide game elements
         this.yourTurnElement.style.visibility = "hidden";
         this.remainingElement.style.visibility = "hidden";
@@ -23,13 +20,14 @@ function EndGameAlert() {
         this.alert.box.style.display = "block";
 
         // Create alert
-        this.alert.head.innerHTML = "Game over"
         this.alert.body.innerHTML = `
-            ${playerName} wins<br>
-            <button id="startGame"><a href="nim.html">New Game</a></button>`
+            Congratulations!<br>
+            ${playerName} wins<br><br>
+            <a href="nim.html"><button id="startGame">New Game</button></a>
+            `;
 
 
-        document.getElementById('alertBoxHead').innerHTML = "Congratulations!" + playerName + "! You have won the game!";
+        /*document.getElementById('alertBoxHead').innerHTML = "Congratulations!" + playerName + "! You have won the game!";
         //document.getElementById('alertBoxBody').innerHTML = this.dialog;
         document.getElementById('alertBoxBody').innerHTML += "Click or Push for New Game"
         document.getElementById('alertBoxFoot').innerHTML = '<button id="startGame"><a href="nim.html">New Game</a></button>'
@@ -37,21 +35,29 @@ function EndGameAlert() {
         //document.getElementById('alertBoxBody').innerHTML += '<input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>';
        // document.getElementById('alertBoxBody').innerHTML += '<input id="radioThree" type="radio" name="btnNum" value="3"> 3 &emsp;';
         //document.getElementById('alertBoxBody').innerHTML += '<input id="radioFour" type="radio" name="btnNum" value="4"> 4';
-        //document.getElementById('alertBoxFoot').innerHTML = '<button id="startGame" onclick="Alert.newGame(' + this.func.name + '())">Try Again</button>';
+        //document.getElementById('alertBoxFoot').innerHTML = '<button id="startGame" onclick="Alert.newGame(' + this.func.name + '())">Try Again</button>';*/
         
     };
     this.AIrender = function(){
         let winH = window.innerHeight; //to center window
-        let alertOverlay = document.getElementById('alertOverlay');
-        let alertBox = document.getElementById('alertBox');
+        // Hide game elements
+        this.yourTurnElement.style.visibility = "hidden";
+        this.remainingElement.style.visibility = "hidden";
         
-        // Unhide box and overlay
-        alertOverlay.style.display = "block";
-        alertOverlay.style.height = winH + "em";
-        alertBox.style.display = "block";
+        // Hide game elements
+        this.alert.overlay.style.display = "block";
+        this.alert.overlay.style.height = winH + "em";
+        this.alert.box.style.display = "block";
 
+        this.alert.body.innerHTML = `
+            <p>You lost against the AI...  😒<br></p>
+            
+            <button id="startGame"><a href="nim.html">New Game</a></button>
+            `;
+    };
+}
 
-        document.getElementById('alertBoxHead').innerHTML = "You lost against the AI...  😒";
+       /* document.getElementById('alertBoxHead').innerHTML = "";
         document.getElementById('alertBoxBody').innerHTML = "Click or Push for New Game";
         document.getElementById('alertBoxFoot').innerHTML += '<button><a href="nim.html">New Game</a></button>'
         //document.getElementById('alertBoxFoot').innerHTML = '<button>Test</button>' //'<button id="startGame" onclick="Alert.tryAgain(' + this.func.name + '())">Try Again</button>';
@@ -61,10 +67,10 @@ function EndGameAlert() {
         //window[this.func.name](promptValue1, promptValue2);
         document.getElementById('alertBox').style.display = "none";
         document.getElementById('alertOverlay').style.display = "none";
-    };
-}
+    };*/
 
-          <div class=namemarbles>
+
+         /* <div class=namemarbles>
               <div id="alertOverlay">
 
               <li id="alertBox">
@@ -74,15 +80,4 @@ function EndGameAlert() {
 
               </li>
               </div>
-          </div>
-
-
-
-function victory(player){
-    let playerName = player.name;
-    if(player.human){
-        Alert.render(playerName);
-    } else {
-        Alert.AIrender();
-    }
-}*/
+          </div>*/

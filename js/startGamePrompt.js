@@ -8,9 +8,7 @@ function StartGamePrompt(dialog, func) {
     this.prompt = {
         overlay: document.getElementById('promptOverlay'),
         box: document.getElementById('promptBox'),
-        head: document.getElementById('promptBoxHead'),
-        body: document.getElementById('promptBoxBody'),
-        foot: document.getElementById('promptBoxFoot')
+        body: document.getElementById('promptBoxBody')
     };
     // Methods
     this.render = function(){
@@ -23,19 +21,25 @@ function StartGamePrompt(dialog, func) {
         this.prompt.overlay.style.height = winH + "em";
         this.prompt.box.style.display = "block";
         // Create prompt
-        this.prompt.head.innerHTML = "Setup";
         this.prompt.body.innerHTML = `
-            ${this.dialog}<br>
+            ${this.dialog}<br><br>
             <input id="promptValue1" type="text" name="player1" placeholder="Player 1 name">
-            <input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br>
+            <input id="promptValue2" type="text" name="player2" placeholder="Player 2 name"><br><br>
+            Number of marbles:
             <form id="radios">
-            <input id="radioTwo" type="radio" name="btnNum" value="2"> 2 &emsp;
-            <input id="radioThree" type="radio" name="btnNum" value="3" checked> 3 &emsp;
-            <input id="radioFour" type="radio" name="btnNum" value="4"> 4
+            <label for="radioTwo">2<br/>
+            <input id="radioTwo" type="radio" name="btnNum" value="2">
+            </label>
+            <label for="radioThree">3<br/>
+            <input id="radioThree" type="radio" name="btnNum" value="3" checked>
+            </label>
+            <label for="radioFour">4<br/>
+            <input id="radioFour" type="radio" name="btnNum" value="4">
+            </label>
             </form><br>
             <button id="startGame" onclick="Prompt.startGameButton(${this.func.name}())">Start game</button>
         `;
-        this.prompt.foot.innerHTML = '';
+        //this.prompt.foot.innerHTML = '';
     };
    this.startGameButton = function(){
         // Hide prompt

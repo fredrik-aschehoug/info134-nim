@@ -151,7 +151,7 @@ img {
 #promptOverlay {
   display: block;
   overflow: auto;
-  max-height: 12em;
+  max-height: 18em;
   max-width: 30em;
   border-radius: 1em;
   border-style: dashed;
@@ -197,7 +197,56 @@ img {
   padding-left: 0;
 }
 
+#alertOverlay {
+  display: none;
+  background-image: url("alertBackground.jpg");
+  overflow: auto;
+  max-height: 15em;
+  max-width: 25em;
+  border-radius: 1em;
+  border-style: solid;
+  border-width: thin;
+  padding-bottom: 2em;
+  padding-left: auto;
+  padding-right: auto;
+  margin: auto;
+  /*display: none;
+  opacity: 0.85;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: #FFF;
+  width: 100%;
+  z-index: 10;*/
+}
 
+#alertBox {
+  display: none;
+  position: fixed;
+  color: lightcyan;
+  font-size: 1em;
+  text-align: center;
+  margin: auto;
+  margin-top: 15.2em;
+  width: 15em;
+  z-index: 10;
+  /*background-image: url("alertBackground.jpg");*/
+}
+
+#alertBox ul{
+  list-style: none;
+  padding: 0;
+}
+
+#alertBox::before {
+  content: "";
+  padding-left: 0;
+}
+
+/*#alertBox > ul > #alertBoxBody {
+  padding: 2em;
+
+}*/
 
 /* ----------------- buttons ----------------- buttons ----------------- */
 @media screen and (max-width: 600px) {
@@ -276,13 +325,14 @@ img {
   }
 
   .namemarbles{
+    font-weight: bold;
     grid-column: 2;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-row-end: span 2;
   }
   .promptOverlay{
-    margin-top: ;
+    margin-top: 
   }
 
 }
