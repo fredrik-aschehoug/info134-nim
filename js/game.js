@@ -23,10 +23,28 @@ const aiText = {
 
 function getAIAmount(){
     let amount;
-    if(nimObj.total < 4){
-        amount = nimObj.total;
-    } else {
-        amount = Math.floor((Math.random() * 3) + 1);
+    switch(nimObj.maxGrab){
+        case 4:
+            if(nimObj.total <= 4){
+                amount = nimObj.total;
+            } else {
+                amount = Math.floor((Math.random() * 4) + 1);
+            }
+            break;
+        case 3:
+            if(nimObj.total <= 3){
+                amount = nimObj.total;
+            } else {
+                amount = Math.floor((Math.random() * 3) + 1);
+            }
+            break;
+        case 2:
+            if(nimObj.total <= 2){
+                amount = nimObj.total;
+            } else {
+                amount = Math.floor((Math.random() * 2) + 1);
+            }
+            break;
     }
     return amount;
 }
@@ -36,8 +54,8 @@ function buttonClickPlayer1(amount){
     if(nimObj.player1.token){
         calculateRemaining(amount);
         nimObj.checkWin(nimObj.player1);
+        nimObj.reverseTokens();
         if(nimObj.player2.human) {
-            nimObj.reverseTokens();
             setCurrentPlayer(nimObj.player2.name);
         }
         disableInvalidButtons(nimObj.total);
@@ -52,6 +70,7 @@ function aiMakeMove(){
     let amount = getAIAmount();
     calculateRemaining(amount);
     nimObj.checkWin(nimObj.player2);
+    nimObj.reverseTokens();
     disableInvalidButtons(nimObj.total);
 }
 
@@ -95,13 +114,18 @@ function aiAnimation(){
 }
 
 function disableInvalidButtons(remainingAmount) {
+    let player1Buttons = document.getElementById("player1Buttons").childNodes;
+    let player2Buttons = document.getElementById("player1Buttons").childNodes;
     if(remainingAmount < 2) {
-        player1Button2.disabled = true;
-        player2Button2.disabled = true;
-    } if(remainingAmount < 3) {
-        player1Button3.disabled = true;
-        player2Button3.disabled = true;
-    } 
+        player1Buttons[1].disabled = true;
+        player2Buttons[1].disabled = true;
+    } if(remainingAmount < 3 && (nimObj.maxGrab == 3 || nimObj.maxGrab == 4)) {
+        player1Buttons[2].disabled = true;
+        player2Buttons[2].disabled = true;
+    } if(remainingAmount < 4 && nimObj.maxGrab == 4){
+        player1Buttons[3].disabled = true;
+        player2Buttons[3].disabled = true;
+    }
 }
 
 function initGame(nimObj){
@@ -189,10 +213,10 @@ function startDatGame() {
             buttonAmount = radios[i].value;
         }
     }
-
+    buttonAmount = parseInt(buttonAmount); // Convert string to int
 
     // Generate random total marbles
-    const total = Math.floor((Math.random() * 33) + 12);
+    const total = Math.floor(Math.random() * (35 - 12) + 12);
     
     nimObj = createNimObject(player1Name, player2Name, victory, total, buttonAmount);
     // Create game object
