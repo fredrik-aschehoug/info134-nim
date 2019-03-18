@@ -1,18 +1,35 @@
-/*function EndGameAlert() {
-    //this.dialog = dialog;
-    //this.func = func;
+function EndGameAlert() {
+    //DOM elements
+    this.yourTurnElement = document.getElementById("yourTurn");
+    this.remainingElement = document.getElementById("remaining");
+    this.alert = {
+        overlay: document.getElementById('alertOverlay'),
+        box: document.getElementById('alertBox'),
+        head: document.getElementById('alertBoxHead'),
+        body: document.getElementById('alertBoxBody'),
+        foot: document.getElementById('alertBoxFoot')
+    };    
+    // Methods
     this.render = function(playerName){
         let winH = window.innerHeight; //to center window
-        let alertOverlay = document.getElementById('alertOverlay');
-        let alertBox = document.getElementById('alertBox');
+    
+        // Hide game elements
+        this.yourTurnElement.style.visibility = "hidden";
+        this.remainingElement.style.visibility = "hidden";
         
-        // Unhide box and overlay
-        alertOverlay.style.display = "block";
-        alertOverlay.style.height = winH + "em";
-        alertBox.style.display = "block";
+        // Show box and overlay
+        this.alert.overlay.style.display = "block";
+        this.alert.overlay.style.height = winH + "em";
+        this.alert.box.style.display = "block";
+
+        // Create alert
+        this.alert.head.innerHTML = "Game over"
+        this.alert.body.innerHTML = `
+            ${playerName} wins<br>
+            <button id="startGame"><a href="nim.html">New Game</a></button>`
 
 
-        document.getElementById('alertBoxHead').innerHTML = "Congratulations " + playerName + "! You have won the game!";
+        document.getElementById('alertBoxHead').innerHTML = "Congratulations!" + playerName + "! You have won the game!";
         //document.getElementById('alertBoxBody').innerHTML = this.dialog;
         document.getElementById('alertBoxBody').innerHTML += "Click or Push for New Game"
         document.getElementById('alertBoxFoot').innerHTML = '<button id="startGame"><a href="nim.html">New Game</a></button>'
@@ -59,7 +76,7 @@
               </div>
           </div>
 
-          
+
 
 function victory(player){
     let playerName = player.name;
