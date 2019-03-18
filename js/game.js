@@ -174,10 +174,10 @@ function createNimObject(player1Name, player2Name, victory, total, buttonAmount)
 function generateButtons(amount) {
     // Generate html buttons
     // amount is how many buttons to generate
+    let player1Div = document.getElementById("player1Buttons");
+    let player2Div = document.getElementById("player2Buttons");
+    let button;
     for(let i = 1; i <= amount; i++){
-        let player1Div = document.getElementById("player1Buttons");
-        let player2Div = document.getElementById("player2Buttons");
-        let button;
         // Button for player 1
         button = document.createElement("button");
         button.innerHTML = i.toString();
@@ -217,7 +217,7 @@ function startGame() {
     buttonAmount = parseInt(buttonAmount); // Convert string to int
 
     // Generate random total marbles
-    const total = Math.floor(Math.random() * (35 - 12) + 12);
+    const total = Math.floor(Math.random() * (35 - 12) + 12); //Int between 12 and 35
     // Create game object
     nimObj = createNimObject(player1Name, player2Name, victory, total, buttonAmount);
 
