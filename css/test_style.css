@@ -197,7 +197,15 @@ img {
   font-size: 3em;
   font-weight: bold;
 }
+#promptBox ul{
+  list-style: none;
+  padding: 0;
+}
 
+#promptBox::before {
+  content: "";
+  padding-left: 0;
+}
 
 
 
