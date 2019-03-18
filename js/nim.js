@@ -10,6 +10,9 @@ function Nim(player1, player2, victory, total, maxGrab){
     if(player2.name == undefined || player2.human == undefined){
         throw "'player2' is missing a value in name or human";
     }
+    if(player1.human == false && player2.human == false){
+        throw "One of the player needs to be human";
+    }
     if(total < 12){
         throw "'total' must be at least 12";
     }
@@ -39,5 +42,3 @@ function Nim(player1, player2, victory, total, maxGrab){
         }
     };
 }
-
-// Oppgave 2.1 og 2.2 er løst i denne filen

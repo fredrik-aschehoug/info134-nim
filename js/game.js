@@ -20,7 +20,7 @@ const aiText = {
         return randomText + '<span id="wait">.</span>';
     }
 };
-
+// Return amount for AI to grab
 function getAIAmount(){
     let amount;
     switch(nimObj.maxGrab){
@@ -66,14 +66,6 @@ function buttonClickPlayer1(amount){
     }
 }
 
-function aiMakeMove(){
-    let amount = getAIAmount();
-    calculateRemaining(amount);
-    nimObj.checkWin(nimObj.player2);
-    nimObj.reverseTokens();
-    disableInvalidButtons(nimObj.total);
-}
-
 function buttonClickPlayer2(amount){
     if(nimObj.player2.token){
         calculateRemaining(amount);
@@ -82,6 +74,14 @@ function buttonClickPlayer2(amount){
         setCurrentPlayer(nimObj.player1.name);
         disableInvalidButtons(nimObj.total);
     }
+}
+
+function aiMakeMove(){
+    let amount = getAIAmount();
+    calculateRemaining(amount);
+    nimObj.checkWin(nimObj.player2);
+    nimObj.reverseTokens();
+    disableInvalidButtons(nimObj.total);
 }
 
 function calculateRemaining(amount){
@@ -112,10 +112,10 @@ function aiAnimation(){
         aiMakeMove();
     }, 3000);
 }
-
+// Disable buttons larger than maxGrab
 function disableInvalidButtons(remainingAmount) {
     let player1Buttons = document.getElementById("player1Buttons").childNodes;
-    let player2Buttons = document.getElementById("player1Buttons").childNodes;
+    let player2Buttons = document.getElementById("player2Buttons").childNodes;
     if(remainingAmount < 2) {
         player1Buttons[1].disabled = true;
         player2Buttons[1].disabled = true;
@@ -133,7 +133,6 @@ function initGame(nimObj){
     remaining.innerHTML = nimObj.total;
     setCurrentPlayer(nimObj.player1.name);
     generateButtons(nimObj.maxGrab);
-    
     // Disable buttons if AI
     if(!nimObj.player2.human){
         let aiButtons = document.getElementById("player2Buttons").childNodes;
@@ -141,6 +140,7 @@ function initGame(nimObj){
         aiButtons[i].disabled = true;
     }
 }
+
 function createNimObject(player1Name, player2Name, victory, total, buttonAmount){
     let player2;   
     if(player1Name != "" && player2Name != "") {
@@ -173,7 +173,7 @@ function createNimObject(player1Name, player2Name, victory, total, buttonAmount)
 
 function generateButtons(amount) {
     // Generate html buttons
-    // amount is how many buuttons to generate
+    // amount is how many buttons to generate
     for(let i = 1; i <= amount; i++){
         let player1Div = document.getElementById("player1Buttons");
         let player2Div = document.getElementById("player2Buttons");
@@ -186,7 +186,6 @@ function generateButtons(amount) {
         // Event listener
         let player1Button = document.getElementById("player1Button" + i);
         player1Button.onclick = () => buttonClickPlayer1(i);
-
         // Button for player 2
         button = document.createElement("button");
         button.innerHTML = i.toString();
@@ -199,10 +198,11 @@ function generateButtons(amount) {
 }
 
 // Create start game prompt object
-let Prompt = new StartGamePrompt('Enter your names:', startDatGame);
+// Bound to body onload
+let Prompt = new StartGamePrompt('Enter your names:', startGame);
 
 // Runs when player clicks on Start game button
-function startDatGame() {
+function startGame() {
     // Get player names from prompt
     const player1Name = document.getElementById('promptValue1').value;
     const player2Name = document.getElementById('promptValue2').value;
@@ -217,9 +217,8 @@ function startDatGame() {
 
     // Generate random total marbles
     const total = Math.floor(Math.random() * (35 - 12) + 12);
-    
-    nimObj = createNimObject(player1Name, player2Name, victory, total, buttonAmount);
     // Create game object
-    
+    nimObj = createNimObject(player1Name, player2Name, victory, total, buttonAmount);
+
     initGame(nimObj);
 }
