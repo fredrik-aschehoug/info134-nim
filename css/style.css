@@ -18,8 +18,6 @@ body {
 
   font-family: Arial, sans-serif;
   font-size: 100%;
-  font-size-adjust: 0.58;
-
 }
 
 
@@ -289,6 +287,106 @@ img {
 
 }
 
+@media screen and (max-width: 600px){
+  #radios{
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+#radios input{
+  margin:0;
+  padding:0;
+  -webkit-appearance:none;
+     -moz-appearance:none;
+          appearance:none;
+}
+
+#radioTwo{
+  background-image: url("2marble.png");
+}
+#radioThree{
+  background-image: url("3marble.png");
+}
+#radioFour{
+  background-image: url("4marble.png");
+}
+#radioTwo,
+#radioThree,
+#radioFour{
+  float: right;
+  /*padding: 1em;*/
+  background-size:contain;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  align-self: center;
+  border-style: none;
+  border-width: none;
+  margin: auto;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+
+  -webkit-filter: grayscale(2) opacity(.7);
+  -moz-filter: grayscale(2) opacity(.7);
+  filter: grayscale(2) opacity(.7);
+}
+
+#radios{
+  cursor:pointer;
+  background-size:contain;
+  background-repeat: no-repeat;
+  display:flex;
+  flex-direction: row nowrap;
+  justify-content:center;
+  align-items: center;
+  width: auto;
+  height:auto;
+  padding-top: 0.5em;
+  padding-left: auto;
+  padding-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#startGame:hover,
+#radioTwo:hover,
+#radioThree:hover,
+#radioFour:hover{
+  -webkit-filter: opacity(0.3);
+  -moz-filter: opacity(0.3);
+  filter: opacity(0.3);
+}
+
+#radios input:checked{
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+
+#startGame {
+  background-image: url("startmarbles.png");
+  display: inline-block;
+
+  padding: 1em 2.2em;
+  text-align: center;
+  border-style: none;
+  border-width: none;
+  margin: auto;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: black;
+  font-size: 0.75em;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 #player1Button1,
 #player2Button1{
