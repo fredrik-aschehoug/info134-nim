@@ -60,7 +60,7 @@ function buttonClickPlayer1(amount){
         }
         disableInvalidButtons(nimObj.total);
         
-        if(!nimObj.player2.human){
+        if(!nimObj.player2.human && nimObj.total !== 0){
             aiAnimation();
         } 
     }
