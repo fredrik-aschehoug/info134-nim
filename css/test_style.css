@@ -1,101 +1,117 @@
 body {
-  margin : 0;
+  display: flex;
+  flex-flow: column nowrap;
+  /*overflow: visible !important;*/
+  /*overflow: auto;*/
+  overflow-x:hidden;
+  width: 100%;
+  /*fit-content: auto;*/
+  height: auto;
+  max-width: 100%;
+  max-height: auto;
+
   border-spacing: 0px;
-  overflow: visible !important;
+  margin : 0;
+
   background: -webkit-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
   background: -moz-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
   background: -ms-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
   background: -o-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
   background: linear-gradient(45deg, #085078 10%, #85d8ce 90%);
-  /*background-image: url("../pwQ4lPy.jpg");*/
-  font-family: Arial, sans-serif;
-  font-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  /*Flex stuff */
-  flex-flow: column nowrap;
-  display: flex;
-  align-items: center;
-  width: auto;
-  height: auto;
-  min-width: auto;
-  min-height: auto;
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+
 }
 
+
+
+
+/* ----------------- header ----------------- header ----------------- */
 .header {
-  font-size: 3em;
   overflow: hidden;
+  width: 100%;
+  padding: 0.2em 0.5em;
   background-color: white;
   opacity: 0.6;
-  padding: 14px 16px;
-  width: 100%;
   color: black;
-}
-.header h1{
-  float: left;
-  display: block;
-  text-decoration: none;
-  /*color: #f2f2f2;*/
-  /*text-align: center;*/
-  padding: 0.1em;
+  font-size: 3em;
 
-  margin: 0;
-  margin-right: 0;
-  /*margin-left: 1.5em; */
+}
+
+.header h1{
+  display: block;
+  float: left;
+  padding: 0.1em;
+  margin: auto;
+  text-decoration: none;
   font-size: 1em;
 }
+
 .header #play{
+  top: 0;
   padding: 1em;
-  top: 0;
-  opacity: 0.8;
-  color: black;
   opacity: 0.6;
+  color: black;
+  text-decoration: none;
 }
-.header #play hover{
-  background-color: grey;
-  opacity: 0.9;
+
+.header #play:hover{
+  /*background-color: grey;*/
+  opacity: 0.2;
   color: black;
 }
 
 
 
 
-
-
-@media screen and (max-width: 450px) {
-  .player1Buttons{
-    -moz-transform: rotate(-180deg);
-    -webkit-transform: rotate(-180deg);
-    margin-top: 1px;
-    font-size: 0.75em;
-    padding: 0.1px;
-    cursor: pointer;
-    border-radius: 0.1px;
+/* ----------------- index ----------------- index ----------------- */
+@media screen and (max-width: 600px) {
+  .rules ul{
+    list-style: none;
+    padding: 0;
+  }
+  li::before {
+    content: "";
+    padding-left: 0;
   }
 
-  .player2Buttons{
-    margin-top: 1px;
-    font-size: 0.75em;
-    padding: 0.1px;
-    cursor: pointer;
-    border-radius: 0.1px;
+}
+
+
+@media screen and (min-width: 600px){
+/*row, column height bredde*/
+
+  #contentHeadline {
+    grid-area: 1 / 1 / 1 /1;
+  }
+  #contentBoxHowTo {
+    grid-area: 2 / 1 / 1 /1;
+  }
+  #imageN {
+    overflow: visible;
+    grid-area: 1 / 2 / 1/ 2;
+    grid-row-end: span 2;
+    width: 100%;
+
+  }
+  .rules {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    align-self: center;
+    grid-gap: 2em;
+    padding: 1em;
+
+    /*align-items: start;*/
+    /*justify-content: space-evenly;*/
   }
 }
-
-.namemarbles{
-  top: 0;
-  margin-top: 1px;
-  height: 40em;
-}
-
 .rules{
-  justify-content: space-around;
-  align-items: left;
-  margin: auto;
-  color: black;
+  margin-left: 2em;
+  margin-right:2em;
 }
-
 .rules h2{
   font-size: 1em;
 }
@@ -104,138 +120,167 @@ body {
 }
 
 img {
-  width: 150;
-  height: 200;
-}
-
-#contentBox{
-  background-color: white;
-  opacity: 0.5;
-  padding: 5px 20px;
-  align-items: left;
-  border: 2em;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
   border-radius: 1em;
-  margin-top:2em;
+  margin-top:1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+
 }
 
+#contentBox,
 #contentBoxHowTo{
+  display: block;
+  max-width: 100%;
+  padding: 1em 2em;
+  border: thin;
+  border-radius: 1em;
+  margin-top:1em;
+  margin-bottom:auto;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
   opacity: 0.5;
-  padding: 5px 20px;
-  align-items: left;
-  border: 2em;
-  border-radius: 1em;
-  margin-top:2em;
+
 }
 
 
-#yourTurn {
-  color: black;
-  margin: 0;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-size: 2em;
+
+
+/* ----------------- nim ----------------- nim ----------------- */
+.game {
+  text-align: center;
+  align-items: center;
 }
 
 #promptOverlay {
-  align-items: center;
-  position: sticky;
-  border-spacing: 5px;
-  max-height: 6em;
-  height: 2em;
-  padding: 2em;
-  margin: 2em;
-
-  margin-bottom: 2em;
-  /*background-color: white; */
-  border-width: 1em;
+  display: block;
+  overflow: auto;
+  max-height: 12em;
+  max-width: 30em;
   border-radius: 1em;
-  /*opacity: 0.6 */
-
   border-style: dashed;
   border-width: thin;
-  display: block;
+  /*border-spacing: 5px;*/
+  padding-bottom: 2em;
+  padding-left: auto;
+  padding-right: auto;
+  margin: auto;
+  /*margin-bottom: 4em;*/
+}
+
+#yourTurn {
+  margin: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: black;
+  font-size: 2em;
 }
 
 #remaining {
+  display: inline-block;
+  max-width:100%;
+  max-height:100%;
+  border: none;
+  padding: 0.5em 0.75em;
+  border-style: transparent;
+  margin: 0;
   background-image: url("marble3.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2em 2em;
-  display: inline-block;
-  /*background-color: lavenderblush;*/
-  border: none;
   color: darkslategray;
-  padding: 0.5em 0.75em;
-  font-size: 2em;
-  max-width:100%;
-  max-height:100%;
+  font-size: 3em;
   font-weight: bold;
-  margin: 0;
-  border-style: transparent;
-  /*border-width: transparent;
-  border-radius: 0.5em;
-  margin-right: 1em;*/
-}
-
-/* Footer */
-.footer {
-  position: fixed;
-  bottom: 0;
-  position: fixed; /*relative;*/
-  /*height: 5em;*/
-  width: 100%;
-  /* background-color: #f1f1f1; */
-  color: darkslategray;
-  text-decoration: none;
-  /*display: inline;*/
-  margin: 0 auto;
-  background-color: white;
-  opacity: 0.6;
-
-  /*
-  z-index: 1000;
-
-  border-bottom: 0.01em;
-  border-left: 0.01em;
-  border-right: 0.01em;
-  border-style: solid;
-  border-color: darkslategray;*/
-}
-
-.footer ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.footer li {
-  float: left;
-  border:1px ;
-}
-.footer li a{
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-.footer li a:hover {
-  background-color: grey;
-  opacity: 0.9;
-  color: black;
 }
 
 
 
-/*KNAPPAR*/
+
+/* ----------------- buttons ----------------- buttons ----------------- */
+@media screen and (max-width: 600px) {
+  .player2Buttons{
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    border-radius: 0.1px;
+    padding: 0.1px;
+    margin-top: 1px;
+    cursor: pointer;
+    font-size: 0.75em;
+  }
+
+  .player1Buttons{
+    border-radius: 0.1px;
+    padding: 0.1px;
+    margin-top: 1px;
+    cursor: pointer;
+    font-size: 0.75em;
+  }
+  #remaining {
+    display: inline-block;
+    font-size: 2em;
+
+  }
+}
+@media screen and (min-width: 600px) {
+
+  .game{
+    display: grid;
+    width: 100%;
+    align-self: center;
+
+    grid-template-columns: 10% auto 10% ;
+    grid-template-rows: 25% 25% 25% 25%;
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: auto;
+    border: auto;
+  }
+
+  .player1Buttons {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: span 4;
+    padding-left: 2em;
+  }
+
+  .player2Buttons  {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: span 4;
+    padding-right: 2em;
+  }
+
+  .midten{
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-row-end: span 3;
+  }
+
+  .namemarbles{
+    grid-column: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-row-end: span 2;
+  }
+
+
+}
+
 
 #player1Button1,
 #player2Button1{
   background-image: url("marble2.png");
 }
-
 #player1Button2,
 #player2Button2{
-background-image: url("2marble.png");
+  background-image: url("2marble.png");
 }
 #player1Button3,
 #player2Button3{
@@ -246,40 +291,33 @@ background-image: url("2marble.png");
   background-image: url("4marble.png");
 }
 
-
 .player1Buttons button,
 .player2Buttons button {
-  background-color: transparent; /*#85088e;/*#006682;*/
-  background-repeat: no-repeat;
-  background-position: center; /*<left|right>;*/
-  background-size: cover;
   display: inline-block;
-
-  /*padding-<left|right>: <width of image> px; */
-  /*margin-top: 0.5em;*/
   height: 4em;
   width: 4em;
-  font-size: 2em;
-  border-style: none;     /*solid; */
-  border-width: none;    /*thin;*/
-  /* border-color: darkslategray; */
-  color: black;         /*gainsboro; /*tekst farge*/
   padding: 1em 1.5em;
+  border-style: none;
+  border-width: none;
+  margin: auto;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: black;
+  font-size: 2em;
   font-weight: bold;
-  /*cursor: pointer;*/
-  /*border-radius: 0.5em; */
-
+  cursor: pointer;
 }
 
 .player1Buttons button:disabled,
 .player2Buttons button:disabled {
   opacity: 0.3;
-  /*background-color: floralwhite;*/
 }
 
 .player1Buttons button:disabled:hover,
 .player2Buttons button:disabled:hover {
-  background-color:floralwhite;
+  opacity: 0.1;
 }
 
 .player2Buttons button:not(:last.child),
@@ -296,6 +334,47 @@ background-image: url("2marble.png");
 
 .player1Buttons button:hover,
 .player2Buttons button:hover {
-  /*background-color: #003766;*/
   opacity: 0.3;
+}
+
+
+
+
+/* ----------------- footer ----------------- footer ----------------- */
+
+.footer {
+  bottom: 0;
+  position: fixed;
+  overflow: hidden;
+  /*height: 2em;*/
+  width: 100%;
+  padding: 0.1em 0.1em;
+  margin: auto;
+  color: darkslategray;
+  background-color: white;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.footer ul{
+  list-style-type: none;
+  padding: 0.1em;
+  margin: 0;
+}
+
+.footer li {
+  float: left;
+  border:1px ;
+}
+
+.footer li a{
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.footer li a:hover {
+  background-color: grey;
+  opacity: 0.9;
+  color: black;
 }

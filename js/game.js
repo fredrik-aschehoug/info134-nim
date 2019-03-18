@@ -108,18 +108,16 @@ function initGame(nimObj){
     let remaining = document.getElementById("remaining");
     remaining.innerHTML = nimObj.total;
     setCurrentPlayer(nimObj.player1.name);
-    
     generateButtons(nimObj.maxGrab);
-    console.log("running initgame");
     
     // Disable buttons if AI
     if(!nimObj.player2.human){
-        player2Button1.disabled = true;
-        player2Button2.disabled = true;
-        player2Button3.disabled = true;
+        let aiButtons = document.getElementById("player2Buttons").childNodes;
+        for(let i = 0; i < aiButtons.length; i++)
+        aiButtons[i].disabled = true;
     }
 }
-function createNimObject(player1Name, player2Name, victory, total){
+function createNimObject(player1Name, player2Name, victory, total, buttonAmount){
     let player2;   
     if(player1Name != "" && player2Name != "") {
         if (player2Name === "AI"){
@@ -139,14 +137,14 @@ function createNimObject(player1Name, player2Name, victory, total){
             human: false
         };
     } else {
-        alert("Player 1 needs a name!")
-        throw "Player 1 is missing name"
+        alert("Player 1 needs a name!");
+        throw "Player 1 is missing name";
     }
     const player1 = {
         name: player1Name,
         human: true
     };
-    return new Nim(player1, player2, victory, total, 4);
+    return new Nim(player1, player2, victory, total, buttonAmount);
 }
 
 function generateButtons(amount) {
@@ -184,13 +182,20 @@ function startDatGame() {
     // Get player names from prompt
     const player1Name = document.getElementById('promptValue1').value;
     const player2Name = document.getElementById('promptValue2').value;
+    let radios = document.forms.namedItem("radios");
+    let buttonAmount;
+    for(let i = 0; i < radios.length; i++){
+        if(radios[i].checked) {
+            buttonAmount = radios[i].value;
+        }
+    }
+
 
     // Generate random total marbles
     const total = Math.floor((Math.random() * 33) + 12);
     
-    nimObj = createNimObject(player1Name, player2Name, victory, total);
+    nimObj = createNimObject(player1Name, player2Name, victory, total, buttonAmount);
     // Create game object
     
-    console.log("running startdatgame");
     initGame(nimObj);
 }
