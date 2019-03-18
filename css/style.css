@@ -1,478 +1,494 @@
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow-x: hidden;
+  height: auto;
+  max-width: 100%;
+  max-height: auto;
+  border-spacing: 0px;
+  margin : 0 auto;
 
-h1 {
-    text-align: left;
+  background: -webkit-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background: -moz-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background: -ms-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background: -o-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background: linear-gradient(45deg, #085078 10%, #85d8ce 90%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+}
+
+
+
+
+/* ----------------- header ----------------- header ----------------- */
+.header {
+  overflow: hidden;
+  width: 100%;
+  padding: 0.2em 0.5em;
+  background-color: white;
+  opacity: 0.6;
+  color: black;
+  font-size: 3em;
+
+}
+
+.header h1{
+  display: block;
+  float: left;
+  padding: 0.1em;
+  margin: auto;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.header #play{
+  top: 0;
+  padding: 1em;
+  opacity: 0.6;
+  color: black;
+  text-decoration: none;
+}
+
+.header #play:hover{
+  /*background-color: grey;*/
+  opacity: 0.2;
+  color: black;
+}
+
+
+
+
+/* ----------------- index ----------------- index ----------------- */
+@media screen and (max-width: 600px) {
+  .rules ul{
+    list-style: none;
+    padding: 0;
+  }
+  li::before {
+    content: "";
+    padding-left: 0;
+  }
+
+}
+
+
+@media screen and (min-width: 600px){
+/*row, column height bredde*/
+
+  #contentHeadline {
+    grid-area: 1 / 1 / 1 /1;
+  }
+  #contentBoxHowTo {
+    grid-area: 2 / 1 / 1 /1;
+  }
+  #imageN {
+    overflow: visible;
+    grid-area: 1 / 2 / 1/ 2;
+    grid-row-end: span 2;
+    width: 100%;
+
+  }
+  .rules {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    align-self: center;
+    grid-gap: 2em;
+    padding: 1em;
+
+    /*align-items: start;*/
+    /*justify-content: space-evenly;*/
+  }
+}
+.rules{
+  margin-left: 2em;
+  margin-right:2em;
+}
+.rules h2{
+  font-size: 1em;
+}
+.rules ul{
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  border-radius: 1em;
+  margin-top:1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+
+}
+
+#contentBox,
+#contentBoxHowTo{
+  display: block;
+  max-width: 100%;
+  padding: 1em 2em;
+  border: thin;
+  border-radius: 1em;
+  margin-top:1em;
+  margin-bottom:auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  opacity: 0.5;
+}
+
+
+/* ----------------- nim ----------------- nim ----------------- */
+.game {
+  text-align: center;
+  align-items: center;
 }
 
 #promptOverlay {
-display: none;
-opacity: 0.8;
-position: fixed;
-top: 0px;
-left: 0px;
-background: #FFF;
-width: 100%;
-z-index: 10;
+  display: block;
+  overflow: auto;
+  max-height: 12em;
+  max-width: 30em;
+  border-radius: 1em;
+  border-style: dashed;
+  border-width: thin;
+  padding-bottom: 2em;
+  padding-left: auto;
+  padding-right: auto;
+  margin: auto;
 }
 
-#promptBox {
-display: none;
-position: fixed;
-background: black;
-margin: auto;
-margin-top: 15.2em;
-width: 15em;
-z-index: 10;
-}
-
-#promptBox > div {background: #FFF; margin: 1px}
-
-#promptBox > div > #promptBoxHead {
-    background: linear-gradient(45deg, #085078 10%, #85d8ce 90%); 
-    font-size: 1.5em; 
-    text-align: center; 
-    padding: 0.5em; 
-    color: lightcyan;
-}
-
-#promptBox > div > #promptBoxBody {
-    background: linear-gradient(45deg, #085078 10%, #85d8ce 90%);
-    padding: 2em; 
-    color: #FFF}
-
-#promptBox > div > #promptBoxFoot {
-    background: linear-gradient(45deg, #085078 10%, #85d8ce 90%); 
-    padding: 0.5em; 
-    text-align: center;}
-
-#startGame {
-    
-    background-color: lightcyan;
-    border: none;
-    color: darkslategray;
-    padding: 0.75em 0.5em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 0.75em;
-    font-weight: bold;
-    cursor: pointer;
-    border-style: solid;
-    border-width: thin;
-    border-radius: 0.5em;   
-}
-
-html {
-    height:100%;
-}
-
-
-body {
-    margin: 0;
-    border-spacing: 5px;
-    overflow: visible !important;
-    background: -webkit-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
-    background: -moz-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
-    background: -ms-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
-    background: -o-linear-gradient(45deg, #085078 10%, #85d8ce 90%);
-    background: linear-gradient(45deg, #085078 10%, #85d8ce 90%);
-    /*background-image: url("../pwQ4lPy.jpg");*/
-    font-family: Arial, sans-serif;
-    font-size: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    /*Flex stuff */
-    flex-flow: column nowrap;
-    display: flex;
-    align-items: center;
-    width: auto;
-    height: auto;
-    min-width: auto;
-    min-height: auto;
-
-}
-
-@media screen and (max-width: 450px) {
-  /*body {
-    font-size: 10%;
-    width: 50%;
-    height:10%;
-  }*/
-  /*
-  #play{}
-  #indexBanner{}
-  #contentHeadline {
-      margin-left: 1em;
-      margin-top: 1em;
-      padding-bottom: 0;
-  }
-
-  h1 {
-    font-size: 20%
-  }
-  */
-  .player1Buttons{
-    /*-moz-transform: rotate(-180deg); */
-    -webkit-transform: rotate(-180deg);
-    margin-top: 1px;
-    font-size: 0.75em;
-    padding: 0.1px;
-    cursor: pointer;
-    border-radius: 0.1px;
-  }
-
-  .player2Buttons{
-    margin-top: 1px;
-    font-size: 0.75em;
-    padding: 0.1px;
-    cursor: pointer;
-    border-radius: 0.1px;
-  }
-
-
-  /*.player1Buttons button {
-        -moz-transform: rotate(-180deg);
-        -webkit-transform: rotate(-180deg);
-  }*/
-}
-.bottombox {
-  margin: 100px
+#yourTurn {
+  margin: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: black;
+  font-size: 2em;
 }
 
 #remaining {
-    background-color: lavenderblush;
-    border: none;
-    color: darkslategray;
-    padding: 0.5em 0.75em;
-    font-size: 1.25em;
-    font-weight: bold;
-    margin-top: 3em;
-    border-style: solid;
-    border-width: thin;
-    border-radius: 0.5em;
-    margin-right: 1em;
-
+  display: inline-block;
+  max-width:100%;
+  max-height:100%;
+  border: none;
+  padding: 0.5em 0.75em;
+  border-style: transparent;
+  margin: 0;
+  background-image: url("marble3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2em 2em;
+  color: darkslategray;
+  font-size: 3em;
+  font-weight: bold;
 }
 
-.button {
-    background-color: floralwhite;
-    border: none;
-    color: darkslategray;
-    padding: 0.75em;
-    text-align: center;
-    text-decoration: none;
+#promptBox ul{
+  list-style: none;
+  padding: 0;
+}
+
+#promptBox::before {
+  content: "";
+  padding-left: 0;
+}
+
+
+
+/* ----------------- buttons ----------------- buttons ----------------- */
+@media screen and (max-width: 600px) {
+  .player2Buttons{
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    border-radius: 0.1px;
+    padding: 0.1px;
+    margin-top: 1px;
+    cursor: pointer;
+    font-size: 0.75em;
+  }
+
+  .player1Buttons{
+    border-radius: 0.1px;
+    padding: 0.1px;
+    margin-top: 1px;
+    cursor: pointer;
+    font-size: 0.75em;
+  }
+  #remaining {
     display: inline-block;
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 1em;
-    cursor: pointer;
-    border-style: solid;
-    border-width: thin;
-    border-radius: 0.5em;
+    font-size: 2em;
+
+  }
 }
 
-
-
-#contentBox {
-    color: darkslategray;
-    background-color: floralwhite;
-    margin-top: 0.1em;
-    padding-bottom: 2%;
-    padding-top: 0.5em;
-    width: 55em;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    border-left: 0.01em;
-    border-right: 0.01em;
-    border-style: solid;
-    border-color: darkslategray;
+@media screen and (max-width: 400px) {
+  .player1Buttons,
+  .player2Buttons{
+    font-size: 0.5em;
+  }
+  #remaining {
+    font-size: 1.5em;
+  }
 }
 
-#contentBoxHowTo {
-    text-align: left;
-    color: darkslategray;
-    background-color: floralwhite;
-    margin-top: 0.1em;
-    padding-bottom: 12em;
-    padding-top: 0.5em;
-    width: 55em;
-    margin-left: auto;
-    margin-right: auto;
-    border-left: 0.01em;
-    border-right: 0.01em;
-    border-style: solid;
-    border-color: darkslategray;
+@media screen and (min-width: 600px) {
+
+  .game{
+    display: grid;
+    width: 100%;
+    align-self: center;
+    grid-template-columns: 30% auto 30% ;
+    grid-template-rows: 25% 25% 25% 25%;
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: auto;
+    border: auto;
+  }
+
+  .player1Buttons {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: span 4;
+    padding-left: 2em;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .player2Buttons  {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: span 4;
+    padding-right: 2em;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .midten{
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-row-end: span 3;
+  }
+
+  .namemarbles{
+    grid-column: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-row-end: span 2;
+  }
+  .promptOverlay{
+    margin-top: ;
+  }
 
 }
 
-#play {
-    background-color: darkslategray;
-    border: none;
-    margin-left: 12.69em;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    color: lavenderblush;
-    padding: 0.5em;
-    text-decoration: none;
-    /*display: inline-block;*/
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
+@media screen and (max-width: 600px){
+  #radios{
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+#radios input{
+  margin:0;
+  padding:0;
+  -webkit-appearance:none;
+     -moz-appearance:none;
+          appearance:none;
 }
 
-#playImage {
-    text-align: left;
-    margin-top: 1em;
-    margin-left: 3em;
-    margin-right: 9em;
+#radioTwo{
+  background-image: url("2marble.png");
+}
+#radioThree{
+  background-image: url("3marble.png");
+}
+#radioFour{
+  background-image: url("4marble.png");
+}
+#radioTwo,
+#radioThree,
+#radioFour{
+  float: right;
+  /*padding: 1em;*/
+  background-size:contain;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  align-self: center;
+  border-style: none;
+  border-width: none;
+  margin: auto;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
 
-
+  -webkit-filter: grayscale(2) opacity(.7);
+  -moz-filter: grayscale(2) opacity(.7);
+  filter: grayscale(2) opacity(.7);
 }
 
-
-#howToPlayText {
-    margin-top: 1em;
+#radios{
+  cursor:pointer;
+  background-size:contain;
+  background-repeat: no-repeat;
+  display:flex;
+  flex-direction: row nowrap;
+  justify-content:center;
+  align-items: center;
+  width: auto;
+  height:auto;
+  padding-top: 0.5em;
+  padding-left: auto;
+  padding-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#howToList {
-    margin-top: 10%;
-    width: 40em;
-    margin-left: 5%;
-    /*padding-left: -10%;
-    padding-right: 1em;*/
-    margin-top: 1em;
-    font-size: 90%;
-    line-height: 1.5em;
+#startGame:hover,
+#radioTwo:hover,
+#radioThree:hover,
+#radioFour:hover{
+  -webkit-filter: opacity(0.3);
+  -moz-filter: opacity(0.3);
+  filter: opacity(0.3);
+}
+
+#radios input:checked{
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+
+#startGame {
+  background-image: url("startmarbles.png");
+  display: inline-block;
+
+  padding: 1em 2.2em;
+  text-align: center;
+  border-style: none;
+  border-width: none;
+  margin: auto;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: black;
+  font-size: 0.75em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#player1Button1,
+#player2Button1{
+  background-image: url("marble2.png");
+}
+#player1Button2,
+#player2Button2{
+  background-image: url("2marble.png");
+}
+#player1Button3,
+#player2Button3{
+  background-image: url("3marble.png");
+}
+#player1Button4,
+#player2Button4{
+  background-image: url("4marble.png");
+}
+
+.player1Buttons button,
+.player2Buttons button {
+  display: inline-block;
+  height: 4em;
+  width: 4em;
+  padding: 1em 1.5em;
+  border-style: none;
+  border-width: none;
+  margin: auto;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: black;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .player1Buttons button:disabled,
 .player2Buttons button:disabled {
-    background-color: floralwhite;
+  opacity: 0.3;
 }
 
 .player1Buttons button:disabled:hover,
 .player2Buttons button:disabled:hover {
-    background-color:floralwhite;
+  opacity: 0.1;
 }
 
-.player1Buttons button {
-    margin-top: 4em;
-    margin-bottom: 3em;
-    background-color: #FF4600;/*#006682;*/
-    font-size: 2em;
-    border-style: solid;
-    border-width: thin;
-    border-color: darkslategray;
-    color: gainsboro;
-    padding: 1em 1.75em;
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.9;
-}
-
+.player2Buttons button:not(:last.child),
 .player1Buttons button:not(:last.child) {
-    border-right:none;
+  border-right:none;
 }
 
-.player1Buttons:after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.player1Buttons button:hover {
-    background-color: #003766;
-
-}
-
-.player2Buttons button {
-    margin-top: 1em;
-    background-color: #FF4600;/*#006682;*/
-    font-size: 2em;
-    border-style: solid;
-    border-width: thin;
-    border-color: darkslategray;
-    color: gainsboro;
-    padding: 1em 1.75em;
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 0.5em;
-    opacity: 0.9;
-}
-
-.player2Buttons button:not(:last.child) {
-    border-right:none;
-}
-
+.player1Buttons:after,
 .player2Buttons:after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
+.player1Buttons button:hover,
 .player2Buttons button:hover {
-    background-color: #003766;
-
-}
-
-#yourTurn {
-    color: silver;
-    margin: 0;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-    font-size: 2em;
-}
-
-h1 {
-    margin: 0;
-    margin-right: 0;
-    margin-left: 1.5em;
-    font-size: 2.5em;
-
+  opacity: 0.3;
 }
 
 
 
-.banner {
-    text-align: center;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: floralwhite;
-    position: fixed;
-    color: darkslategray;
-    border-top: 0.01em;
-    border-left: 0.01em;
-    border-right: 0.01em;
-    border-style: solid;
-    border-color: darkslategray;
-}
 
-#indexBanner {
-
-    margin-left: auto;
-    margin-right: auto;
-    width: 55em;
-    margin-top: 5%;
-    background-color: lavenderblush;
-    /*position: fixed;*/
-    color: darkslategray;
-    border-top: 0.01em;
-    border-left: 0.01em;
-    border-right: 0.01em;
-    border-style: solid;
-    border-color: darkslategray;
-
-}
-
-#contentHeadline {
-    margin-left: 2.5em;
-    margin-top: 1em;
-    padding-bottom: 0;
-}
-
-#contentHeadline:after{
-    content: "";
-    display: block;
-    margin-left: 0;
-    width: 50%;
-    padding-top: 0.25em;
-    border-bottom: 0.1em solid darkslategray;
-    opacity: 0.5;
-}
-
-hr {
-    padding-top: -100%;
-    display: block;
-    overflow: hidden;
-    border-style: solid;
-    border-width: 1em;
-}
-
-.mainList {
-    text-align: left;
-    width: 30em;
-    margin-left: 5%;
-    /*padding-left: -10%;
-    padding-right: 1em;*/
-    margin-top: 1em;
-    font-size: 90%;
-    line-height: 1.5em;
-
-
-}
+/* ----------------- footer ----------------- footer ----------------- */
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: floralwhite;
-    color: darkslategray;
-    text-align: center;
-    border-bottom: 0.01em;
-    border-left: 0.01em;
-    border-right: 0.01em;
-    border-style: solid;
-    border-color: darkslategray;
+  bottom: 0;
+  position: fixed;
+  overflow: hidden;
+  /*height: 2em;*/
+  width: 100%;
+  padding: 0.1em 0.1em;
+  margin: auto;
+  color: darkslategray;
+  background-color: white;
+  opacity: 0.6;
+  text-decoration: none;
 }
 
-li {
-    margin: 0.5em;
+.footer ul{
+  list-style-type: none;
+  padding: 0.1em;
+  margin: 0;
 }
 
-
-h3 a {
-    text-align: center;
-    width: 10%;
-    color: #000;
-    padding: 0.1%;
-    text-decoration: none;
-    display: inline-block;
+.footer li {
+  float: left;
+  border:1px ;
 }
 
-
-#sideBySide1 {
-    position: relative;
-    display:inline-block;
-    margin: 0 auto;
-
+.footer li a{
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
 }
 
-#sideBySide2 {
-    position: relative;
-    display: inline-block;
-    /*float: right;*/
-    /*margin-top: -1.9%;
-    margin-right: 40%;*/
-    margin: 0 auto;
-}
-
-.playerNames {
-    color: floralwhite;
-    margin-top: 2.5em;
-
-
-}
-
-#promptValue1 {
-    margin-top: 1em;
-
-}
-
-#promptValue2 {
-    margin-top: 1em;
-}
-
-#radioThree {
-    margin-top: 1.5em;
-}
-
-#radioFour {
-    margin-top: 1em;
+.footer li a:hover {
+  background-color: grey;
+  opacity: 0.9;
+  color: black;
 }
